@@ -20,11 +20,15 @@ export default function Contact() {
           <div className="premium-card p-5 space-y-4">
             <div>
               <p className="text-slate-400 text-sm">Phone</p>
-              <h3 className="text-lg font-black mt-1">+91 98338119893</h3>
+
+              <h3 className="text-lg font-black mt-1">
+                +91 98338119893
+              </h3>
             </div>
 
             <div>
               <p className="text-slate-400 text-sm">Email</p>
+
               <h3 className="text-lg font-black mt-1 break-all">
                 axiramarketing@gmail.com
               </h3>
@@ -42,20 +46,69 @@ export default function Contact() {
         </FadeUp>
 
         <FadeUp delay={0.12}>
-          <form className="premium-card p-5 space-y-4">
+          <form
+            action="https://formsubmit.co/axiramarketing@gmail.com"
+            method="POST"
+            className="premium-card p-5 space-y-4"
+          >
+            <input
+              type="hidden"
+              name="_subject"
+              value="New Axira Media Inquiry"
+            />
+
+            <input
+              type="hidden"
+              name="_captcha"
+              value="false"
+            />
+
+            <input
+              type="hidden"
+              name="_template"
+              value="table"
+            />
+
             <div className="grid md:grid-cols-2 gap-4">
-              <input className="input-premium" placeholder="Your Name" />
-              <input className="input-premium" placeholder="Phone Number" />
+              <input
+                name="name"
+                className="input-premium"
+                placeholder="Your Name"
+                required
+              />
+
+              <input
+                name="phone"
+                className="input-premium"
+                placeholder="Phone Number"
+                required
+              />
             </div>
 
-            <input className="input-premium" placeholder="Email Address" />
+            <input
+              name="email"
+              type="email"
+              className="input-premium"
+              placeholder="Email Address"
+              required
+            />
 
-            <input className="input-premium" placeholder="Business Name" />
+            <input
+              name="business"
+              className="input-premium"
+              placeholder="Business Name"
+            />
 
-            <select className="input-premium" defaultValue="">
+            <select
+              name="service"
+              className="input-premium"
+              defaultValue=""
+              required
+            >
               <option value="" disabled>
                 Service Needed
               </option>
+
               <option>Website Development</option>
               <option>SEO Optimization</option>
               <option>Google Ads</option>
@@ -64,16 +117,21 @@ export default function Contact() {
             </select>
 
             <textarea
+              name="message"
               className="input-premium min-h-24 resize-none"
               placeholder="Tell us about your business goals"
+              required
             />
 
-            <button type="button" className="premium-button w-full px-8 py-3">
+            <button
+              type="submit"
+              className="premium-button w-full px-8 py-3"
+            >
               Send Inquiry
             </button>
 
             <p className="text-slate-500 text-xs text-center">
-              This form is UI-ready. Connect it to email, Google Sheets or Supabase next.
+              We usually respond within 24 hours.
             </p>
           </form>
         </FadeUp>
