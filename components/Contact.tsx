@@ -101,7 +101,7 @@ export default function Contact() {
 
             <select
               name="service"
-              className="input-premium"
+              className="input-premium bg-[#101b2d] text-white"
               defaultValue=""
               required
             >
@@ -109,11 +109,25 @@ export default function Contact() {
                 Service Needed
               </option>
 
-              <option>Website Development</option>
-              <option>SEO Optimization</option>
-              <option>Google Ads</option>
-              <option>Meta Ads</option>
-              <option>Social Media Management</option>
+              <option value="Website Development">
+                Website Development
+              </option>
+
+              <option value="SEO Optimization">
+                SEO Optimization
+              </option>
+
+              <option value="Google Ads">
+                Google Ads
+              </option>
+
+              <option value="Meta Ads">
+                Meta Ads
+              </option>
+
+              <option value="Social Media Management">
+                Social Media Management
+              </option>
             </select>
 
             <textarea

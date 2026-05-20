@@ -167,6 +167,11 @@ footer {
   padding-bottom: 1.5rem !important;
 }
 
+select option {
+  background: #101b2d;
+  color: white;
+}
+
 @media (max-width: 768px) {
   .one-page-section {
     min-height: auto;
