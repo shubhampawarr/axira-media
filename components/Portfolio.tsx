@@ -9,19 +9,22 @@ const featuredProjects = [
     client: 'AF Care Physio',
     industry: 'Healthcare',
     service: 'Social Media Marketing',
-    video: '/videos/af_care.mp4',
+    video:
+      'https://res.cloudinary.com/dir7hugvf/video/upload/q_auto/f_auto/v1780390002/af_care_gnbso3.mp4',
   },
   {
     client: 'Basyl Cafe Vapi',
     industry: 'Cafe / Food & Beverage',
     service: 'Social Media Reels',
-    video: '/videos/basyl-cafe-vapi.mp4',
+    video:
+      'https://res.cloudinary.com/dir7hugvf/video/upload/q_auto/f_auto/v1780389962/basyl-cafe-vapi_m5ccac.mp4',
   },
   {
     client: 'Kraft Associate Interior',
     industry: 'Interior Design',
     service: 'Brand Video Creation',
-    video: '/videos/kraft-assosiate-interior.mp4',
+    video:
+      'https://res.cloudinary.com/dir7hugvf/video/upload/q_auto/f_auto/v1780389960/kraft-assosiate-interior_meakta.mp4',
   },
 ];
 

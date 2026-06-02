@@ -23,19 +23,22 @@ const portfolioSections = [
         name: 'AF Care Physio',
         sector: 'Physiotherapy Clinic',
         work: 'Social Media Marketing',
-        video: '/videos/af_care.mp4',
+        video:
+          'https://res.cloudinary.com/dir7hugvf/video/upload/q_auto/f_auto/v1780390002/af_care_gnbso3.mp4',
       },
     ],
   },
   {
     section: 'Interior & Real Estate',
-    description: 'Brand videos and promotional creatives for space-focused businesses.',
+    description:
+      'Brand videos and promotional creatives for space-focused businesses.',
     clients: [
       {
         name: 'Kraft Associate Interior',
         sector: 'Interior Design',
         work: 'Brand Content',
-        video: '/videos/kraft-assosiate-interior.mp4',
+        video:
+          'https://res.cloudinary.com/dir7hugvf/video/upload/q_auto/f_auto/v1780389960/kraft-assosiate-interior_meakta.mp4',
       },
     ],
   },
@@ -47,13 +50,15 @@ const portfolioSections = [
         name: 'Basyl Cafe Vapi',
         sector: 'Cafe / Food & Beverage',
         work: 'Social Media Reels',
-        video: '/videos/basyl-cafe-vapi.mp4',
+        video:
+          'https://res.cloudinary.com/dir7hugvf/video/upload/q_auto/f_auto/v1780389962/basyl-cafe-vapi_m5ccac.mp4',
       },
       {
         name: "Pete's Pizzeria",
         sector: 'Restaurant',
         work: 'Social Media Marketing',
-        video: '/videos/petes-pizzeria.mp4',
+        video:
+          'https://res.cloudinary.com/dir7hugvf/video/upload/q_auto/f_auto/v1780390010/pwswcwkmtaa0cm6azmg3.mp4',
       },
     ],
   },
@@ -65,7 +70,8 @@ const portfolioSections = [
         name: 'Nail Express Salon',
         sector: 'Salon / Beauty',
         work: 'Content Marketing',
-        video: '/videos/nail-express-salon.mp4',
+        video:
+          'https://res.cloudinary.com/dir7hugvf/video/upload/q_auto/f_auto/v1780389966/nail-express-salon_d6uyzg.mp4',
       },
     ],
   },
@@ -136,37 +142,33 @@ export default function PortfolioPage() {
                               key={client.name}
                               className="premium-card bg-white p-5 md:p-6"
                             >
-                              <div className="flex items-start justify-between gap-4">
-                                <div>
-                                  <h3 className="text-xl md:text-2xl font-black text-[#071a3d]">
-                                    {client.name}
-                                  </h3>
+                              <h3 className="text-xl md:text-2xl font-black text-[#071a3d]">
+                                {client.name}
+                              </h3>
 
-                                  <div className="mt-5 space-y-3">
-                                    <div className="flex items-center gap-3 text-sm text-slate-600">
-                                      <Building2
-                                        size={17}
-                                        className="text-[#2563eb]"
-                                      />
-                                      <span>{client.sector}</span>
-                                    </div>
+                              <div className="mt-5 space-y-3">
+                                <div className="flex items-center gap-3 text-sm text-slate-600">
+                                  <Building2
+                                    size={17}
+                                    className="text-[#2563eb]"
+                                  />
+                                  <span>{client.sector}</span>
+                                </div>
 
-                                    <div className="flex items-center gap-3 text-sm text-slate-600">
-                                      <Briefcase
-                                        size={17}
-                                        className="text-[#2563eb]"
-                                      />
-                                      <span>{client.work}</span>
-                                    </div>
+                                <div className="flex items-center gap-3 text-sm text-slate-600">
+                                  <Briefcase
+                                    size={17}
+                                    className="text-[#2563eb]"
+                                  />
+                                  <span>{client.work}</span>
+                                </div>
 
-                                    <div className="flex items-center gap-3 text-sm text-slate-600">
-                                      <Clapperboard
-                                        size={17}
-                                        className="text-[#2563eb]"
-                                      />
-                                      <span>Campaign Creative</span>
-                                    </div>
-                                  </div>
+                                <div className="flex items-center gap-3 text-sm text-slate-600">
+                                  <Clapperboard
+                                    size={17}
+                                    className="text-[#2563eb]"
+                                  />
+                                  <span>Campaign Creative</span>
                                 </div>
                               </div>
 
