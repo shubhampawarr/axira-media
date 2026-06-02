@@ -5,56 +5,60 @@ import FadeUp from './FadeUp';
 
 const features = [
   {
-    title: 'Business-First Approach',
+    title: 'Business-First',
     icon: Briefcase,
-    desc: 'Every strategy is designed around measurable business growth.',
+    desc: 'Strategies built around measurable growth.',
   },
   {
-    title: 'Transparent Execution',
+    title: 'Transparent',
     icon: ShieldCheck,
-    desc: 'Track campaigns, performance and results with full clarity.',
+    desc: 'Clear reporting and communication.',
   },
   {
-    title: 'Growth-Focused',
+    title: 'Growth Focused',
     icon: LineChart,
-    desc: 'We focus on leads, conversions and long-term ROI.',
+    desc: 'Focused on leads, sales and ROI.',
   },
   {
-    title: 'Custom Strategies',
+    title: 'Custom Plans',
     icon: Target,
-    desc: 'No templates — every business gets a tailored roadmap.',
+    desc: 'Tailored strategies for every business.',
   },
 ];
 
 export default function WhyChoose() {
   return (
-    <section id="why" className="compact-section">
+    <section id="why" className="py-24 px-6 bg-white">
       <div className="container-premium">
         <FadeUp>
-          <div className="text-center mb-10">
+          <div className="text-center mb-10 md:mb-14">
             <p className="section-label">Why Choose Axira</p>
 
             <h2 className="section-title max-w-4xl mx-auto">
               Built to help businesses{' '}
-              <span className="gold-text">scale digitally.</span>
+              <span className="text-[#2563eb]">
+                scale digitally.
+              </span>
             </h2>
           </div>
         </FadeUp>
 
-        <div className="grid md:grid-cols-2 gap-5">
+        <div className="grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-6">
           {features.map((feature, index) => {
             const Icon = feature.icon;
 
             return (
               <FadeUp key={feature.title} delay={index * 0.08}>
-                <div className="premium-card p-6 h-full">
-                  <div className="w-12 h-12 rounded-2xl bg-[#d4af37]/10 flex items-center justify-center mb-4">
-                    <Icon className="text-[#d4af37]" size={24} />
+                <div className="premium-card p-4 md:p-6 h-full">
+                  <div className="w-10 h-10 md:w-12 md:h-12 rounded-2xl bg-[#eff6ff] flex items-center justify-center mb-3 md:mb-4">
+                    <Icon className="text-[#2563eb]" size={20} />
                   </div>
 
-                  <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+                  <h3 className="text-sm md:text-xl font-bold mb-2 md:mb-3 text-[#071a3d] leading-tight">
+                    {feature.title}
+                  </h3>
 
-                  <p className="text-slate-400 text-sm leading-relaxed">
+                  <p className="text-xs md:text-sm text-slate-600 leading-relaxed">
                     {feature.desc}
                   </p>
                 </div>

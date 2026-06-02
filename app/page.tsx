@@ -1,59 +1,41 @@
 import Navbar from '@/components/Navbar';
-import OnePageScroll from '@/components/OnePageScroll';
 
 import Hero from '@/components/Hero';
+import Stats from '@/components/Stats';
 import About from '@/components/About';
 import Services from '@/components/Services';
 import WhyChoose from '@/components/WhyChoose';
+import Process from '@/components/Process';
 import Portfolio from '@/components/Portfolio';
 import Testimonials from '@/components/Testimonials';
-import Team from '@/components/Team';
-import Contact from '@/components/Contact';
+import FinalCTA from '@/components/FinalCTA';
 import Footer from '@/components/Footer';
 import WhatsAppButton from '@/components/WhatsAppButton';
 
 export default function Home() {
   return (
-    <main className="bg-[#071120] text-white overflow-x-hidden">
+    <main className="bg-white text-[#071a3d] overflow-x-hidden">
       <Navbar />
 
-      <OnePageScroll>
-        <section className="one-page-section">
-          <Hero />
-        </section>
+      <Hero />
 
-        <section className="one-page-section">
-          <About />
-        </section>
+      <Stats />
 
-        <section className="one-page-section">
-          <Services />
-        </section>
+      <About />
 
-        <section className="one-page-section">
-          <WhyChoose />
-        </section>
+      <Services />
 
-        <section className="one-page-section">
-          <Portfolio />
-        </section>
+      <WhyChoose />
 
-        <section className="one-page-section">
-          <Testimonials />
-        </section>
+      <Process />
 
-        <section className="one-page-section">
-          <Team />
-        </section>
+      <Portfolio />
 
-        <section className="one-page-section">
-          <Contact />
-        </section>
+      <Testimonials />
 
-        <section className="one-page-section footer-section">
-          <Footer />
-        </section>
-      </OnePageScroll>
+      <FinalCTA />
+
+      <Footer />
 
       <WhatsAppButton />
     </main>
