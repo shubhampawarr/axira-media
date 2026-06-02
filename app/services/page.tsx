@@ -1,6 +1,7 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FinalCTA from '@/components/FinalCTA';
+import PageHero from '@/components/PageHero';
 import {
   Megaphone,
   MousePointerClick,
@@ -50,12 +51,7 @@ const services = [
     title: 'SEO Optimization',
     icon: Search,
     intro: 'Improve rankings, visibility and organic traffic.',
-    deliverables: [
-      'SEO Audit',
-      'On-Page SEO',
-      'Technical SEO',
-      'Local SEO',
-    ],
+    deliverables: ['SEO Audit', 'On-Page SEO', 'Technical SEO', 'Local SEO'],
   },
   {
     title: 'Website Development',
@@ -72,12 +68,7 @@ const services = [
     title: 'Branding & Design',
     icon: Palette,
     intro: 'Create a polished identity for a stronger brand presence.',
-    deliverables: [
-      'Logo Design',
-      'Brand Identity',
-      'Social Creatives',
-      'Ad Designs',
-    ],
+    deliverables: ['Logo Design', 'Brand Identity', 'Social Creatives', 'Ad Designs'],
   },
   {
     title: 'Google Business Listing',
@@ -92,37 +83,42 @@ const services = [
   },
 ];
 
+const servicePromises = [
+  {
+    title: 'Clear Strategy',
+    text: 'Every project starts with goals, audience, positioning and the right channel plan.',
+  },
+  {
+    title: 'Creative Execution',
+    text: 'Campaigns and assets are built to look polished, memorable and platform-ready.',
+  },
+  {
+    title: 'Performance Focus',
+    text: 'We track visibility, leads, engagement and growth outcomes across campaigns.',
+  },
+];
+
 export default function ServicesPage() {
   return (
     <>
       <Navbar />
 
-      <main className="pt-28 overflow-hidden bg-white">
-        <section className="relative px-6 py-16 md:py-24">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(37,99,235,0.12),transparent_30%),radial-gradient(circle_at_85%_10%,rgba(219,234,254,0.9),transparent_28%)]" />
+      <main className="overflow-hidden bg-white">
+        <PageHero
+          label="Our Services"
+          title="Digital marketing capabilities built for"
+          highlight="serious growth."
+          description="From visibility and traffic to leads, conversions and brand trust — Axira Media provides end-to-end digital growth services for modern businesses."
+        />
 
-          <div className="container-premium relative z-10">
-            <div className="mx-auto max-w-4xl text-center">
-              <p className="section-label">Our Services</p>
-
-              <h1 className="section-title">
-                Digital marketing capabilities built for{' '}
-                <span className="text-[#2563eb]">serious growth.</span>
-              </h1>
-
-              <p className="section-text mx-auto mt-6 max-w-3xl">
-                From visibility and traffic to leads, conversions and brand
-                trust — Axira Media provides end-to-end digital growth services
-                for modern businesses.
-              </p>
-            </div>
-
-            <div className="mt-10 grid grid-cols-2 gap-4 md:grid-cols-4">
+        <section className="px-6 pb-24">
+          <div className="container-premium">
+            <div className="grid grid-cols-2 gap-4 md:gap-6">
               {['Strategy', 'Creativity', 'Performance', 'Growth'].map(
                 (item) => (
                   <div
                     key={item}
-                    className="rounded-3xl border border-[#dbeafe] bg-white/80 p-4 md:p-5 text-center shadow-[0_18px_45px_rgba(7,26,61,0.08)] backdrop-blur-xl"
+                    className="rounded-3xl border border-[#dbeafe] bg-white/80 p-4 md:p-6 text-center shadow-[0_18px_45px_rgba(7,26,61,0.08)] backdrop-blur-xl"
                   >
                     <p className="text-xs md:text-sm font-black text-[#071a3d]">
                       {item}
@@ -136,7 +132,7 @@ export default function ServicesPage() {
 
         <section className="px-6 pb-24">
           <div className="container-premium">
-            <div className="grid grid-cols-2 lg:grid-cols-2 gap-4 md:gap-6">
+            <div className="grid grid-cols-2 gap-4 md:gap-6">
               {services.map((service, index) => {
                 const Icon = service.icon;
 
@@ -176,6 +172,7 @@ export default function ServicesPage() {
                               size={14}
                               className="shrink-0 text-[#93c5fd]"
                             />
+
                             <span>{item}</span>
                           </div>
                         ))}
@@ -188,35 +185,28 @@ export default function ServicesPage() {
           </div>
         </section>
 
-        <section className="px-6 pb-24">
+        <section className="px-6 py-24 bg-[#f8fbff]">
           <div className="container-premium">
-            <div className="rounded-[2rem] bg-[#f8fbff] border border-[#dbeafe] p-6 md:p-10">
-              <div className="grid gap-6 md:grid-cols-3">
-                {[
-                  {
-                    title: 'Clear Strategy',
-                    text: 'Every project starts with goals, audience and positioning.',
-                  },
-                  {
-                    title: 'Creative Execution',
-                    text: 'Campaigns and assets are built to look polished and perform.',
-                  },
-                  {
-                    title: 'Performance Focus',
-                    text: 'We track visibility, leads, engagement and growth outcomes.',
-                  },
-                ].map((item) => (
-                  <div key={item.title}>
-                    <h3 className="text-xl font-black text-[#071a3d]">
-                      {item.title}
-                    </h3>
+            <div className="text-center mb-14">
+              <p className="section-label">How We Work</p>
 
-                    <p className="mt-3 text-sm leading-relaxed text-slate-600">
-                      {item.text}
-                    </p>
-                  </div>
-                ))}
-              </div>
+              <h2 className="section-title max-w-4xl mx-auto">
+                Strategy, creative execution and performance in one system.
+              </h2>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-3">
+              {servicePromises.map((item) => (
+                <div key={item.title} className="premium-card p-8">
+                  <h3 className="text-xl md:text-2xl font-black text-[#071a3d]">
+                    {item.title}
+                  </h3>
+
+                  <p className="mt-4 text-sm leading-relaxed text-slate-600">
+                    {item.text}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </section>

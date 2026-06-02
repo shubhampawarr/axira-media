@@ -28,7 +28,7 @@ const features = [
 
 export default function WhyChoose() {
   return (
-    <section id="why" className="py-24 px-6 bg-white">
+    <section id="why" className="py-24 px-6 bg-[#f8fbff]">
       <div className="container-premium">
         <FadeUp>
           <div className="text-center mb-10 md:mb-14">

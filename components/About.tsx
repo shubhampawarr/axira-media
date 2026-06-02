@@ -5,7 +5,7 @@ import { BarChart3, Sparkles, Target } from 'lucide-react';
 
 export default function About() {
   return (
-    <section id="about" className="py-24 px-6 bg-white">
+    <section id="about" className="py-24 px-6 bg-[#f8fbff]">
       <div className="container-premium">
         <div className="grid lg:grid-cols-2 gap-16 items-center">
           <FadeUp>

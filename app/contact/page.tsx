@@ -1,62 +1,52 @@
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import PageHero from '@/components/PageHero';
 import { Mail, Phone, MessageCircle, MapPin, ArrowRight } from 'lucide-react';
+
+const contactCards = [
+  {
+    icon: Mail,
+    label: 'Email',
+    value: 'axiramarketing@gmail.com',
+    href: 'mailto:axiramarketing@gmail.com',
+  },
+  {
+    icon: Phone,
+    label: 'Phone',
+    value: '+91 83693 12112',
+    href: 'tel:+918369312112',
+  },
+  {
+    icon: MessageCircle,
+    label: 'WhatsApp',
+    value: '+91 98338 11893',
+    href: 'https://wa.me/919833811893',
+  },
+  {
+    icon: MapPin,
+    label: 'Location',
+    value: 'Mumbai, Maharashtra',
+    href: '#',
+  },
+];
 
 export default function ContactPage() {
   return (
     <>
       <Navbar />
 
-      <main className="pt-28 overflow-hidden bg-white">
-        <section className="relative px-6 py-16 md:py-24">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_15%_20%,rgba(37,99,235,0.12),transparent_30%),radial-gradient(circle_at_85%_10%,rgba(219,234,254,0.9),transparent_28%)]" />
-
-          <div className="container-premium relative z-10">
-            <div className="mx-auto max-w-4xl text-center">
-              <p className="section-label">Contact Axira Media</p>
-
-              <h1 className="section-title">
-                Let’s discuss your next{' '}
-                <span className="text-[#2563eb]">growth project.</span>
-              </h1>
-
-              <p className="section-text mx-auto mt-6 max-w-3xl">
-                Tell us what you want to build, improve or grow. We’ll help you
-                choose the right digital strategy for your business.
-              </p>
-            </div>
-          </div>
-        </section>
+      <main className="overflow-hidden bg-white">
+        <PageHero
+          label="Contact Axira Media"
+          title="Let’s discuss your next"
+          highlight="growth project."
+          description="Tell us what you want to build, improve or grow. We’ll help you choose the right digital strategy for your business."
+        />
 
         <section className="px-6 pb-24">
           <div className="container-premium grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
             <div className="space-y-5">
-              {[
-                {
-                  icon: Mail,
-                  label: 'Email',
-                  value: 'axiramarketing@gmail.com',
-                  href: 'mailto:axiramarketing@gmail.com',
-                },
-                {
-                  icon: Phone,
-                  label: 'Phone',
-                  value: '+91 83693 12112',
-                  href: 'tel:+918369312112',
-                },
-                {
-                  icon: MessageCircle,
-                  label: 'WhatsApp',
-                  value: '+91 98338 11893',
-                  href: 'https://wa.me/919833811893',
-                },
-                {
-                  icon: MapPin,
-                  label: 'Location',
-                  value: 'Mumbai, Maharashtra',
-                  href: '#',
-                },
-              ].map((item) => {
+              {contactCards.map((item) => {
                 const Icon = item.icon;
 
                 return (
@@ -73,6 +63,7 @@ export default function ContactPage() {
                       <p className="text-xs font-black uppercase tracking-[0.2em] text-[#2563eb]">
                         {item.label}
                       </p>
+
                       <p className="mt-1 text-sm md:text-base font-semibold text-[#071a3d] break-all">
                         {item.value}
                       </p>
@@ -90,6 +81,7 @@ export default function ContactPage() {
                   <label className="text-sm font-bold text-slate-200">
                     Name
                   </label>
+
                   <input
                     type="text"
                     placeholder="Your name"
@@ -101,6 +93,7 @@ export default function ContactPage() {
                   <label className="text-sm font-bold text-slate-200">
                     Phone / WhatsApp
                   </label>
+
                   <input
                     type="tel"
                     placeholder="Your phone number"
@@ -112,6 +105,7 @@ export default function ContactPage() {
                   <label className="text-sm font-bold text-slate-200">
                     Service Needed
                   </label>
+
                   <select className="mt-2 w-full rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white outline-none focus:border-[#93c5fd]">
                     <option>Social Media Management</option>
                     <option>Meta Ads</option>
@@ -127,6 +121,7 @@ export default function ContactPage() {
                   <label className="text-sm font-bold text-slate-200">
                     Message
                   </label>
+
                   <textarea
                     rows={5}
                     placeholder="Tell us about your business goals"

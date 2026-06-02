@@ -1,49 +1,70 @@
+'use client';
+
+import { useState } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FinalCTA from '@/components/FinalCTA';
+import PageHero from '@/components/PageHero';
+import {
+  ChevronDown,
+  Play,
+  X,
+  Briefcase,
+  Building2,
+  Clapperboard,
+} from 'lucide-react';
 
 const portfolioSections = [
   {
     section: 'Healthcare',
-    projects: [
+    description: 'Marketing creatives and social content for healthcare brands.',
+    clients: [
       {
-        client: 'AF Care Physio',
-        service: 'Social Media Marketing',
+        name: 'AF Care Physio',
+        sector: 'Physiotherapy Clinic',
+        work: 'Social Media Marketing',
         video: '/videos/af_care.mp4',
       },
     ],
   },
   {
     section: 'Interior & Real Estate',
-    projects: [
+    description: 'Brand videos and promotional creatives for space-focused businesses.',
+    clients: [
       {
-        client: 'Kraft Associate Interior',
-        service: 'Brand Content',
+        name: 'Kraft Associate Interior',
+        sector: 'Interior Design',
+        work: 'Brand Content',
         video: '/videos/kraft-assosiate-interior.mp4',
       },
     ],
   },
   {
     section: 'Restaurants & Cafes',
-    projects: [
+    description: 'Reels and visual campaigns for food, cafe and restaurant brands.',
+    clients: [
       {
-        client: 'Basyl Cafe Vapi',
-        service: 'Social Media Reels',
+        name: 'Basyl Cafe Vapi',
+        sector: 'Cafe / Food & Beverage',
+        work: 'Social Media Reels',
         video: '/videos/basyl-cafe-vapi.mp4',
       },
       {
-        client: "Pete's Pizzeria",
-        service: 'Social Media Marketing',
+        name: "Pete's Pizzeria",
+        sector: 'Restaurant',
+        work: 'Social Media Marketing',
         video: '/videos/petes-pizzeria.mp4',
       },
     ],
   },
   {
     section: 'Beauty & Lifestyle',
-    projects: [
+    description: 'Content marketing assets for beauty, lifestyle and salon brands.',
+    clients: [
       {
-        client: 'Nail Express Salon',
-        service: 'Content Marketing',
+        name: 'Nail Express Salon',
+        sector: 'Salon / Beauty',
+        work: 'Content Marketing',
         video: '/videos/nail-express-salon.mp4',
       },
     ],
@@ -51,99 +72,121 @@ const portfolioSections = [
 ];
 
 export default function PortfolioPage() {
+  const [openSection, setOpenSection] = useState<string>('Healthcare');
+  const [activeVideo, setActiveVideo] = useState<string | null>(null);
+
   return (
     <>
       <Navbar />
 
-      <main className="pt-32">
-        {/* HERO */}
-        <section className="px-6 pb-20">
-          <div className="container-premium text-center">
-            <p className="section-label">Portfolio</p>
+      <main className="overflow-hidden bg-white">
+        <PageHero
+          label="Portfolio"
+          title="Real work for"
+          highlight="real businesses."
+          description="Explore client campaigns, social media content, brand creatives and promotional videos created across different industries."
+        />
 
-            <h1 className="section-title max-w-4xl mx-auto">
-              Real work for real businesses.
-            </h1>
-
-            <p className="section-text max-w-2xl mx-auto mt-6">
-              Explore marketing campaigns, social media content,
-              brand creatives and promotional videos created
-              for businesses across multiple industries.
-            </p>
-          </div>
-        </section>
-
-        {/* INDUSTRIES */}
-        <section className="px-6 pb-20">
-          <div className="container-premium">
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-              {[
-                'Healthcare',
-                'Restaurants',
-                'Real Estate',
-                'Interior Design',
-                'Beauty',
-                'Local Businesses',
-                'Startups',
-                'Retail',
-              ].map((industry) => (
-                <div
-                  key={industry}
-                  className="premium-card p-5 text-center font-semibold text-[#071a3d]"
-                >
-                  {industry}
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
-
-        {/* PORTFOLIO SECTIONS */}
         <section className="px-6 pb-24">
-          <div className="container-premium space-y-20">
-            {portfolioSections.map((group) => (
-              <div key={group.section}>
-                <div className="mb-8">
-                  <p className="section-label">
-                    {group.section}
-                  </p>
+          <div className="container-premium">
+            <div className="space-y-5">
+              {portfolioSections.map((group) => {
+                const isOpen = openSection === group.section;
 
-                  <h2 className="text-3xl md:text-4xl font-black text-[#071a3d]">
-                    Featured Client Work
-                  </h2>
-                </div>
-
-                <div className="grid md:grid-cols-2 xl:grid-cols-3 gap-6">
-                  {group.projects.map((project) => (
-                    <div
-                      key={project.client}
-                      className="premium-card overflow-hidden"
+                return (
+                  <div
+                    key={group.section}
+                    className="overflow-hidden rounded-[2rem] border border-[#dbeafe] bg-white shadow-[0_20px_60px_rgba(7,26,61,0.08)]"
+                  >
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setOpenSection(isOpen ? '' : group.section)
+                      }
+                      className="flex w-full items-center justify-between gap-5 bg-white px-5 py-6 text-left md:px-8 md:py-8"
                     >
-                      <div className="aspect-[9/16] bg-black">
-                        <video
-                          src={project.video}
-                          controls
-                          muted
-                          playsInline
-                          preload="metadata"
-                          className="w-full h-full object-cover"
-                        />
-                      </div>
+                      <div>
+                        <p className="text-xs font-black uppercase tracking-[0.24em] text-[#2563eb]">
+                          Sector
+                        </p>
 
-                      <div className="p-6">
-                        <h3 className="text-xl font-black text-[#071a3d]">
-                          {project.client}
-                        </h3>
+                        <h2 className="mt-2 text-2xl md:text-4xl font-black tracking-[-0.04em] text-[#071a3d]">
+                          {group.section}
+                        </h2>
 
-                        <p className="mt-2 text-slate-600">
-                          {project.service}
+                        <p className="mt-3 max-w-2xl text-sm md:text-base leading-relaxed text-slate-600">
+                          {group.description}
                         </p>
                       </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            ))}
+
+                      <div
+                        className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#eff6ff] text-[#2563eb] transition ${
+                          isOpen ? 'rotate-180' : ''
+                        }`}
+                      >
+                        <ChevronDown size={22} />
+                      </div>
+                    </button>
+
+                    {isOpen && (
+                      <div className="border-t border-[#dbeafe] bg-[#f8fbff] px-5 py-6 md:px-8 md:py-8">
+                        <div className="grid gap-5 md:grid-cols-2">
+                          {group.clients.map((client) => (
+                            <article
+                              key={client.name}
+                              className="premium-card bg-white p-5 md:p-6"
+                            >
+                              <div className="flex items-start justify-between gap-4">
+                                <div>
+                                  <h3 className="text-xl md:text-2xl font-black text-[#071a3d]">
+                                    {client.name}
+                                  </h3>
+
+                                  <div className="mt-5 space-y-3">
+                                    <div className="flex items-center gap-3 text-sm text-slate-600">
+                                      <Building2
+                                        size={17}
+                                        className="text-[#2563eb]"
+                                      />
+                                      <span>{client.sector}</span>
+                                    </div>
+
+                                    <div className="flex items-center gap-3 text-sm text-slate-600">
+                                      <Briefcase
+                                        size={17}
+                                        className="text-[#2563eb]"
+                                      />
+                                      <span>{client.work}</span>
+                                    </div>
+
+                                    <div className="flex items-center gap-3 text-sm text-slate-600">
+                                      <Clapperboard
+                                        size={17}
+                                        className="text-[#2563eb]"
+                                      />
+                                      <span>Campaign Creative</span>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <button
+                                type="button"
+                                onClick={() => setActiveVideo(client.video)}
+                                className="mt-6 inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-[#071a3d] px-5 py-3.5 text-sm font-black text-white transition hover:scale-[1.02] hover:bg-[#0b2a5b]"
+                              >
+                                <Play size={17} />
+                                Watch Campaign
+                              </button>
+                            </article>
+                          ))}
+                        </div>
+                      </div>
+                    )}
+                  </div>
+                );
+              })}
+            </div>
           </div>
         </section>
 
@@ -151,6 +194,29 @@ export default function PortfolioPage() {
 
         <Footer />
       </main>
+
+      {activeVideo && (
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#071a3d]/90 px-4 backdrop-blur-md">
+          <div className="relative w-full max-w-md overflow-hidden rounded-[2rem] bg-black shadow-[0_30px_90px_rgba(0,0,0,0.45)]">
+            <button
+              type="button"
+              onClick={() => setActiveVideo(null)}
+              className="absolute right-4 top-4 z-20 flex h-10 w-10 items-center justify-center rounded-full bg-white text-[#071a3d]"
+              aria-label="Close video"
+            >
+              <X size={20} />
+            </button>
+
+            <video
+              src={activeVideo}
+              controls
+              autoPlay
+              playsInline
+              className="h-[80vh] w-full object-contain"
+            />
+          </div>
+        </div>
+      )}
     </>
   );
 }
