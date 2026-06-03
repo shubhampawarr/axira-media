@@ -1,7 +1,13 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight, TrendingUp, Target, BarChart3, CheckCircle2 } from 'lucide-react';
+import {
+  ArrowRight,
+  TrendingUp,
+  Target,
+  BarChart3,
+  CheckCircle2,
+} from 'lucide-react';
 
 const metrics = [
   { icon: Target, label: 'Lead Generation', value: '+182%' },
@@ -122,13 +128,6 @@ export default function Hero() {
                   </div>
                 );
               })}
-            </div>
-
-            <div className="mt-4 rounded-2xl bg-[#eff6ff] border border-[#dbeafe] p-4">
-              <p className="text-xs text-slate-500">Services</p>
-              <p className="text-[#071a3d] text-xl font-black mt-1">
-                SEO • Ads • Websites • Social
-              </p>
             </div>
           </div>
         </motion.div>

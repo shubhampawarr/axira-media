@@ -2,29 +2,46 @@
 
 import Link from 'next/link';
 import FadeUp from './FadeUp';
-import { ArrowUpRight, Play } from 'lucide-react';
+import {
+  HeartPulse,
+  Utensils,
+  Home,
+  Sparkles,
+  Store,
+  Rocket,
+  ArrowRight,
+} from 'lucide-react';
 
-const featuredProjects = [
+const industries = [
   {
-    client: 'AF Care Physio',
-    industry: 'Healthcare',
-    service: 'Social Media Marketing',
-    video:
-      'https://res.cloudinary.com/dir7hugvf/video/upload/q_auto/f_auto/v1780390002/af_care_gnbso3.mp4',
+    title: 'Healthcare',
+    icon: HeartPulse,
+    desc: 'Clinics, wellness brands and healthcare service providers.',
   },
   {
-    client: 'Basyl Cafe Vapi',
-    industry: 'Cafe / Food & Beverage',
-    service: 'Social Media Reels',
-    video:
-      'https://res.cloudinary.com/dir7hugvf/video/upload/q_auto/f_auto/v1780389962/basyl-cafe-vapi_m5ccac.mp4',
+    title: 'Restaurants & Cafes',
+    icon: Utensils,
+    desc: 'Food brands, cafes, restaurants and hospitality businesses.',
   },
   {
-    client: 'Kraft Associate Interior',
-    industry: 'Interior Design',
-    service: 'Brand Video Creation',
-    video:
-      'https://res.cloudinary.com/dir7hugvf/video/upload/q_auto/f_auto/v1780389960/kraft-assosiate-interior_meakta.mp4',
+    title: 'Interior & Real Estate',
+    icon: Home,
+    desc: 'Interior studios, property brands and space-focused businesses.',
+  },
+  {
+    title: 'Beauty & Lifestyle',
+    icon: Sparkles,
+    desc: 'Salons, beauty brands and lifestyle businesses.',
+  },
+  {
+    title: 'Local Businesses',
+    icon: Store,
+    desc: 'Local service providers looking to grow digitally.',
+  },
+  {
+    title: 'Startups & Growing Brands',
+    icon: Rocket,
+    desc: 'Early-stage businesses building digital visibility.',
   },
 ];
 
@@ -34,77 +51,53 @@ export default function Portfolio() {
       <div className="container-premium">
         <FadeUp>
           <div className="text-center mb-16">
-            <p className="section-label">Selected Work</p>
+            <p className="section-label">Industries We Worked With</p>
 
             <h2 className="section-title max-w-4xl mx-auto">
-              Real client work across{' '}
-              <span className="text-[#2563eb]">industries.</span>
+              Experience across{' '}
+              <span className="text-[#2563eb]">
+                multiple business sectors.
+              </span>
             </h2>
 
             <p className="section-text max-w-2xl mx-auto mt-5">
-              A preview of brand videos, social media creatives and marketing
-              content created for growing businesses.
+              Axira Media works with businesses across different industries,
+              creating digital strategies, campaigns and content based on each
+              brand’s audience and goals.
             </p>
           </div>
         </FadeUp>
 
-        <div className="grid md:grid-cols-3 gap-6">
-          {featuredProjects.map((project, index) => (
-            <FadeUp key={project.client} delay={index * 0.08}>
-              <article className="premium-card overflow-hidden h-full group bg-white">
-                <div className="relative aspect-[9/14] bg-[#071a3d] overflow-hidden">
-                  <video
-                    src={project.video}
-                    className="h-full w-full object-cover transition duration-500 group-hover:scale-105"
-                    muted
-                    loop
-                    playsInline
-                    controls
-                    preload="metadata"
-                  />
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4 md:gap-6">
+          {industries.map((industry, index) => {
+            const Icon = industry.icon;
 
-                  <div className="pointer-events-none absolute inset-0 bg-gradient-to-t from-[#071a3d]/70 via-transparent to-transparent" />
-
-                  <div className="pointer-events-none absolute top-4 left-4 right-4 flex items-start justify-between">
-                    <span className="rounded-full bg-white/90 border border-[#dbeafe] px-3 py-2 text-xs font-bold text-[#2563eb] backdrop-blur-md">
-                      {project.industry}
-                    </span>
-
-                    <span className="w-10 h-10 rounded-full bg-white/90 border border-[#dbeafe] flex items-center justify-center text-[#071a3d] backdrop-blur-md">
-                      <Play size={16} />
-                    </span>
+            return (
+              <FadeUp key={industry.title} delay={index * 0.08}>
+                <div className="premium-card p-4 md:p-7 h-full">
+                  <div className="w-11 h-11 md:w-14 md:h-14 rounded-2xl bg-[#eff6ff] flex items-center justify-center mb-4 md:mb-6">
+                    <Icon className="text-[#2563eb]" size={22} />
                   </div>
+
+                  <h3 className="text-base md:text-2xl font-black text-[#071a3d] leading-tight">
+                    {industry.title}
+                  </h3>
+
+                  <p className="mt-3 text-xs md:text-sm text-slate-600 leading-relaxed">
+                    {industry.desc}
+                  </p>
                 </div>
-
-                <div className="p-6">
-                  <div className="flex items-start justify-between gap-4">
-                    <div>
-                      <h4 className="text-xl font-black text-[#071a3d]">
-                        {project.client}
-                      </h4>
-
-                      <p className="mt-2 text-sm text-slate-600">
-                        {project.service}
-                      </p>
-                    </div>
-
-                    <ArrowUpRight
-                      className="text-[#2563eb] shrink-0"
-                      size={20}
-                    />
-                  </div>
-                </div>
-              </article>
-            </FadeUp>
-          ))}
+              </FadeUp>
+            );
+          })}
         </div>
 
         <div className="mt-12 text-center">
           <Link
             href="/portfolio"
-            className="inline-flex items-center justify-center rounded-2xl bg-[#071a3d] px-7 py-4 text-sm font-bold text-white transition hover:bg-[#0b2a5b] hover:scale-105"
+            className="inline-flex items-center justify-center gap-2 rounded-2xl bg-[#071a3d] px-7 py-4 text-sm font-bold text-white transition hover:bg-[#0b2a5b] hover:scale-105"
           >
-            View Full Portfolio
+            View Portfolio Work <ArrowRight size={18} />
           </Link>
         </div>
       </div>
