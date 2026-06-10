@@ -88,7 +88,8 @@ export default function ContactForm() {
 
       setStatus({
         type: 'success',
-        message: 'Inquiry sent successfully. Axira Media will get back to you soon.',
+        message:
+          'Inquiry sent successfully. Axira Media will get back to you soon.',
       });
 
       setFormData(initialFormState);
@@ -105,11 +106,16 @@ export default function ContactForm() {
     }
   }
 
+  const inputClass =
+    'mt-1.5 w-full rounded-2xl border border-white/10 bg-white/10 px-3.5 py-2.5 text-sm text-white outline-none placeholder:text-slate-400 focus:border-[#93c5fd]';
+
+  const labelClass = 'text-[13px] font-bold text-slate-200';
+
   return (
-    <form onSubmit={handleSubmit} className="relative z-10 space-y-5">
-      <div className="grid gap-5 md:grid-cols-2">
+    <form onSubmit={handleSubmit} className="relative z-10 space-y-4">
+      <div className="grid gap-4 md:grid-cols-2">
         <div>
-          <label htmlFor="name" className="text-sm font-bold text-slate-200">
+          <label htmlFor="name" className={labelClass}>
             Name <span className="text-[#93c5fd]">*</span>
           </label>
 
@@ -121,15 +127,12 @@ export default function ContactForm() {
             value={formData.name}
             onChange={updateField}
             placeholder="Your name"
-            className="mt-2 w-full rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white outline-none placeholder:text-slate-400 focus:border-[#93c5fd]"
+            className={inputClass}
           />
         </div>
 
         <div>
-          <label
-            htmlFor="businessName"
-            className="text-sm font-bold text-slate-200"
-          >
+          <label htmlFor="businessName" className={labelClass}>
             Business Name <span className="text-[#93c5fd]">*</span>
           </label>
 
@@ -141,14 +144,14 @@ export default function ContactForm() {
             value={formData.businessName}
             onChange={updateField}
             placeholder="Your business name"
-            className="mt-2 w-full rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white outline-none placeholder:text-slate-400 focus:border-[#93c5fd]"
+            className={inputClass}
           />
         </div>
       </div>
 
-      <div className="grid gap-5 md:grid-cols-2">
+      <div className="grid gap-4 md:grid-cols-2">
         <div>
-          <label htmlFor="phone" className="text-sm font-bold text-slate-200">
+          <label htmlFor="phone" className={labelClass}>
             Phone / WhatsApp <span className="text-[#93c5fd]">*</span>
           </label>
 
@@ -160,12 +163,12 @@ export default function ContactForm() {
             value={formData.phone}
             onChange={updateField}
             placeholder="+91 98765 43210"
-            className="mt-2 w-full rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white outline-none placeholder:text-slate-400 focus:border-[#93c5fd]"
+            className={inputClass}
           />
         </div>
 
         <div>
-          <label htmlFor="email" className="text-sm font-bold text-slate-200">
+          <label htmlFor="email" className={labelClass}>
             Email
           </label>
 
@@ -176,14 +179,14 @@ export default function ContactForm() {
             value={formData.email}
             onChange={updateField}
             placeholder="you@example.com"
-            className="mt-2 w-full rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white outline-none placeholder:text-slate-400 focus:border-[#93c5fd]"
+            className={inputClass}
           />
         </div>
       </div>
 
-      <div className="grid gap-5 md:grid-cols-2">
+      <div className="grid gap-4 md:grid-cols-2">
         <div>
-          <label htmlFor="service" className="text-sm font-bold text-slate-200">
+          <label htmlFor="service" className={labelClass}>
             Service Needed <span className="text-[#93c5fd]">*</span>
           </label>
 
@@ -193,7 +196,7 @@ export default function ContactForm() {
             required
             value={formData.service}
             onChange={updateField}
-            className="mt-2 w-full rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white outline-none focus:border-[#93c5fd] [&>option]:bg-[#071a3d] [&>option]:text-white"
+            className={`${inputClass} [&>option]:bg-[#071a3d] [&>option]:text-white`}
           >
             <option value="" disabled>
               Select a service
@@ -208,7 +211,7 @@ export default function ContactForm() {
         </div>
 
         <div>
-          <label htmlFor="budget" className="text-sm font-bold text-slate-200">
+          <label htmlFor="budget" className={labelClass}>
             Budget Range <span className="text-[#93c5fd]">*</span>
           </label>
 
@@ -218,7 +221,7 @@ export default function ContactForm() {
             required
             value={formData.budget}
             onChange={updateField}
-            className="mt-2 w-full rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white outline-none focus:border-[#93c5fd] [&>option]:bg-[#071a3d] [&>option]:text-white"
+            className={`${inputClass} [&>option]:bg-[#071a3d] [&>option]:text-white`}
           >
             <option value="" disabled>
               Select budget range
@@ -234,25 +237,25 @@ export default function ContactForm() {
       </div>
 
       <div>
-        <label htmlFor="message" className="text-sm font-bold text-slate-200">
+        <label htmlFor="message" className={labelClass}>
           Project Details <span className="text-[#93c5fd]">*</span>
         </label>
 
         <textarea
           id="message"
           name="message"
-          rows={5}
+          rows={4}
           required
           value={formData.message}
           onChange={updateField}
           placeholder="Tell us about your business, goals, target audience, location and what you want to improve."
-          className="mt-2 w-full resize-none rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white outline-none placeholder:text-slate-400 focus:border-[#93c5fd]"
+          className="mt-1.5 w-full resize-none rounded-2xl border border-white/10 bg-white/10 px-3.5 py-2.5 text-sm text-white outline-none placeholder:text-slate-400 focus:border-[#93c5fd]"
         />
       </div>
 
       {status && (
         <div
-          className={`rounded-2xl border px-4 py-3 text-sm font-semibold ${
+          className={`rounded-2xl border px-3.5 py-2.5 text-sm font-semibold ${
             status.type === 'success'
               ? 'border-emerald-400/30 bg-emerald-400/10 text-emerald-200'
               : 'border-red-400/30 bg-red-400/10 text-red-200'
@@ -262,6 +265,7 @@ export default function ContactForm() {
             {status.type === 'success' && (
               <CheckCircle2 className="mt-0.5 shrink-0" size={16} />
             )}
+
             <span>{status.message}</span>
           </div>
         </div>
@@ -270,21 +274,21 @@ export default function ContactForm() {
       <button
         type="submit"
         disabled={isSubmitting}
-        className="flex w-full items-center justify-center gap-2 rounded-2xl bg-white px-6 py-4 font-black text-[#071a3d] transition hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:scale-100"
+        className="flex w-full items-center justify-center gap-2 rounded-2xl bg-white px-5 py-3.5 text-sm font-black text-[#071a3d] transition hover:scale-[1.02] disabled:cursor-not-allowed disabled:opacity-70 disabled:hover:scale-100"
       >
         {isSubmitting ? (
           <>
-            <Loader2 size={18} className="animate-spin" />
+            <Loader2 size={17} className="animate-spin" />
             Sending Inquiry...
           </>
         ) : (
           <>
-            Send Inquiry <ArrowRight size={18} />
+            Send Inquiry <ArrowRight size={17} />
           </>
         )}
       </button>
 
-      <p className="text-center text-xs text-slate-400">
+      <p className="text-center text-[11px] text-slate-400">
         Fields marked with * are required.
       </p>
     </form>

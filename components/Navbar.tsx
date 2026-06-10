@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, ArrowRight } from 'lucide-react';
 
 const navLinks = [
   { label: 'Home', href: '/' },
@@ -29,21 +29,30 @@ export default function Navbar() {
   };
 
   return (
-    <nav className="fixed top-0 left-0 w-full z-50 border-b border-[#dbeafe] bg-white/90 backdrop-blur-xl">
-      <div className="container-premium flex items-center justify-between px-5 py-4 md:px-6 md:py-5">
-        {/* LOGO */}
+    <nav className="fixed left-0 top-0 z-50 w-full border-b border-[#dbeafe]/80 bg-white/85 shadow-[0_10px_40px_rgba(7,26,61,0.06)] backdrop-blur-2xl">
+      <div className="container-premium flex items-center justify-between px-5 py-4 md:px-6">
         <Link
           href="/"
           scroll={true}
           onClick={handleHomeClick}
-          className="logo-font text-lg md:text-2xl font-black tracking-[0.14em] md:tracking-[0.18em]"
+          className="group flex items-center gap-3"
+          aria-label="Axira Media Home"
         >
-          <span className="text-[#071a3d]">AXIRA</span>
-          <span className="text-[#2563eb]"> MEDIA</span>
+          <div className="flex h-10 w-10 items-center justify-center rounded-2xl bg-[#071a3d] text-sm font-black tracking-[-0.04em] text-white shadow-[0_14px_35px_rgba(7,26,61,0.22)]">
+            AX
+          </div>
+
+          <div className="leading-none">
+            <p className="logo-font text-base font-black tracking-[0.16em] text-[#071a3d] md:text-xl">
+              AXIRA
+            </p>
+            <p className="mt-1 text-[10px] font-black uppercase tracking-[0.28em] text-[#2563eb]">
+              Media
+            </p>
+          </div>
         </Link>
 
-        {/* DESKTOP NAV */}
-        <div className="hidden md:flex items-center gap-9 text-sm">
+        <div className="hidden items-center rounded-full border border-[#dbeafe] bg-white/80 px-2 py-2 shadow-[0_14px_45px_rgba(7,26,61,0.06)] md:flex">
           {navLinks.map((link) => {
             const active = pathname === link.href;
 
@@ -57,10 +66,10 @@ export default function Navbar() {
                     handleHomeClick();
                   }
                 }}
-                className={`font-medium transition ${
+                className={`rounded-full px-4 py-2 text-sm font-bold transition ${
                   active
-                    ? 'text-[#2563eb]'
-                    : 'text-slate-600 hover:text-[#2563eb]'
+                    ? 'bg-[#eff6ff] text-[#2563eb]'
+                    : 'text-slate-600 hover:bg-[#f8fbff] hover:text-[#2563eb]'
                 }`}
               >
                 {link.label}
@@ -69,28 +78,27 @@ export default function Navbar() {
           })}
         </div>
 
-        {/* CTA */}
         <Link
           href="/contact"
-          className="hidden md:flex items-center justify-center rounded-2xl bg-[#071a3d] px-5 py-3 text-sm font-bold text-white transition hover:scale-105 hover:bg-[#0b2a5b]"
+          className="hidden items-center justify-center gap-2 rounded-2xl bg-[#071a3d] px-5 py-3 text-sm font-black text-white shadow-[0_18px_45px_rgba(7,26,61,0.2)] transition hover:-translate-y-0.5 hover:bg-[#0b2a5b] md:flex"
         >
-          Let's Talk
+          Let&apos;s Talk <ArrowRight size={16} />
         </Link>
 
-        {/* MOBILE MENU BUTTON */}
         <button
+          type="button"
           onClick={() => setOpen(!open)}
-          className="md:hidden text-[#071a3d]"
+          className="flex h-11 w-11 items-center justify-center rounded-2xl border border-[#dbeafe] bg-white text-[#071a3d] shadow-sm md:hidden"
           aria-label="Toggle menu"
+          aria-expanded={open}
         >
-          {open ? <X size={26} /> : <Menu size={26} />}
+          {open ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
-      {/* MOBILE MENU */}
       {open && (
-        <div className="md:hidden border-t border-[#dbeafe] bg-white px-5 py-5">
-          <div className="flex flex-col gap-4">
+        <div className="border-t border-[#dbeafe] bg-white px-5 py-5 shadow-[0_24px_70px_rgba(7,26,61,0.08)] md:hidden">
+          <div className="flex flex-col gap-2">
             {navLinks.map((link) => {
               const active = pathname === link.href;
 
@@ -109,10 +117,10 @@ export default function Navbar() {
                       });
                     }
                   }}
-                  className={`font-medium transition ${
+                  className={`rounded-2xl px-4 py-3 text-base font-bold transition ${
                     active
-                      ? 'text-[#2563eb]'
-                      : 'text-slate-700 hover:text-[#2563eb]'
+                      ? 'bg-[#eff6ff] text-[#2563eb]'
+                      : 'text-slate-700 hover:bg-[#f8fbff] hover:text-[#2563eb]'
                   }`}
                 >
                   {link.label}
@@ -123,9 +131,9 @@ export default function Navbar() {
             <Link
               href="/contact"
               onClick={() => setOpen(false)}
-              className="mt-2 rounded-2xl bg-[#071a3d] px-5 py-3 text-center text-sm font-bold text-white"
+              className="mt-3 flex items-center justify-center gap-2 rounded-2xl bg-[#071a3d] px-5 py-4 text-center text-sm font-black text-white"
             >
-              Let's Talk
+              Let&apos;s Talk <ArrowRight size={16} />
             </Link>
           </div>
         </div>

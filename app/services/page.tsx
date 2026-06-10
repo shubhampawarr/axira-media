@@ -14,6 +14,7 @@ import {
   MapPin,
   BarChart3,
   CheckCircle2,
+  ArrowRight,
 } from 'lucide-react';
 
 export const metadata: Metadata = generateSeoMetadata({
@@ -113,9 +114,11 @@ const servicePromises = [
   },
   {
     title: 'Performance Focus',
-    text: 'We track visibility, leads, engagement and growth outcomes across campaigns.',
+    text: 'We track practical campaign signals such as visibility, inquiries, engagement and conversion intent.',
   },
 ];
+
+const pillars = ['Strategy', 'Creativity', 'Performance', 'Growth'];
 
 export default function ServicesPage() {
   return (
@@ -130,67 +133,80 @@ export default function ServicesPage() {
           description="From visibility and traffic to leads, conversions and brand trust — Axira Media provides end-to-end digital growth services for modern businesses."
         />
 
-        <section className="px-6 pb-24">
+        <section className="px-6 pb-14 md:pb-16">
           <div className="container-premium">
-            <div className="grid grid-cols-2 gap-4 md:gap-6">
-              {['Strategy', 'Creativity', 'Performance', 'Growth'].map(
-                (item) => (
-                  <div
-                    key={item}
-                    className="rounded-3xl border border-[#dbeafe] bg-white/80 p-4 md:p-6 text-center shadow-[0_18px_45px_rgba(7,26,61,0.08)] backdrop-blur-xl"
-                  >
-                    <p className="text-xs md:text-sm font-black text-[#071a3d]">
-                      {item}
-                    </p>
-                  </div>
-                )
-              )}
+            <div className="grid grid-cols-2 gap-3 md:grid-cols-4 md:gap-4">
+              {pillars.map((item) => (
+                <div
+                  key={item}
+                  className="rounded-[1.4rem] border border-[#dbeafe] bg-white/80 p-4 text-center shadow-[0_14px_40px_rgba(7,26,61,0.06)] backdrop-blur-xl transition hover:-translate-y-0.5 hover:bg-[#f8fbff] md:p-5"
+                >
+                  <p className="text-xs font-black uppercase tracking-[0.18em] text-[#2563eb]">
+                    {item}
+                  </p>
+                </div>
+              ))}
             </div>
           </div>
         </section>
 
-        <section className="px-6 pb-24">
+        <section className="px-6 pb-16 md:pb-20">
           <div className="container-premium">
-            <div className="grid grid-cols-2 gap-4 md:gap-6">
+            <div className="mb-9 text-center md:mb-10">
+              <p className="section-label">What We Do</p>
+
+              <h2 className="section-title mx-auto max-w-4xl">
+                Services designed to improve visibility, trust and inquiries.
+              </h2>
+
+              <p className="section-text mx-auto mt-4 max-w-2xl">
+                Choose a focused service or combine multiple capabilities into a
+                complete digital growth system.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-5 xl:grid-cols-3">
               {services.map((service, index) => {
                 const Icon = service.icon;
 
                 return (
                   <article
                     key={service.title}
-                    className="group relative overflow-hidden rounded-[1.6rem] md:rounded-[2rem] border border-[#bfdbfe] bg-[#071a3d] text-white shadow-[0_18px_50px_rgba(7,26,61,0.2)] transition-all duration-300 hover:-translate-y-1 md:shadow-[0_28px_80px_rgba(7,26,61,0.22)]"
+                    className="group relative overflow-hidden rounded-[1.6rem] border border-[#bfdbfe] bg-[#071a3d] text-white shadow-[0_18px_55px_rgba(7,26,61,0.18)] transition-all duration-300 hover:-translate-y-1"
                   >
                     <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_15%,rgba(37,99,235,0.55),transparent_35%)]" />
+                    <div className="absolute -bottom-20 -left-20 h-48 w-48 rounded-full bg-[#2563eb]/20 blur-3xl" />
 
-                    <div className="relative z-10 p-4 md:p-8">
-                      <div className="mb-5 md:mb-8 flex items-start justify-between gap-3">
-                        <div className="flex h-11 w-11 md:h-14 md:w-14 items-center justify-center rounded-2xl bg-white/10 border border-white/10">
+                    <div className="relative z-10 p-5 md:p-6">
+                      <div className="mb-5 flex items-start justify-between gap-3">
+                        <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-white/10 bg-white/10">
                           <Icon size={21} className="text-[#93c5fd]" />
                         </div>
 
-                        <span className="rounded-full bg-white/10 px-3 md:px-4 py-1.5 md:py-2 text-[10px] md:text-xs font-black uppercase tracking-[0.18em] text-[#bfdbfe]">
+                        <span className="rounded-full bg-white/10 px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.18em] text-[#bfdbfe]">
                           {String(index + 1).padStart(2, '0')}
                         </span>
                       </div>
 
-                      <h2 className="text-base md:text-4xl font-black tracking-[-0.03em] text-white leading-tight">
+                      <h3 className="text-2xl font-black leading-tight tracking-[-0.04em] text-white md:text-3xl">
                         {service.title}
-                      </h2>
+                      </h3>
 
-                      <p className="mt-3 md:mt-4 text-xs md:text-base leading-relaxed text-slate-300">
+                      <p className="mt-3 text-sm leading-7 text-slate-300">
                         {service.intro}
                       </p>
 
-                      <div className="mt-5 md:mt-7 grid grid-cols-1 sm:grid-cols-2 gap-2 md:gap-3">
+                      <div className="mt-5 grid grid-cols-1 gap-2 sm:grid-cols-2">
                         {service.deliverables.map((item) => (
                           <div
                             key={item}
-                            className="flex items-center gap-2 rounded-2xl bg-white/10 px-3 md:px-4 py-2.5 md:py-3 text-[11px] md:text-sm font-medium text-slate-200 border border-white/10"
+                            className="flex items-center gap-2 rounded-2xl border border-white/10 bg-white/10 px-3 py-2.5 text-xs font-semibold text-slate-200"
                           >
                             <CheckCircle2
                               size={14}
                               className="shrink-0 text-[#93c5fd]"
                             />
+
                             <span>{item}</span>
                           </div>
                         ))}
@@ -199,28 +215,66 @@ export default function ServicesPage() {
                   </article>
                 );
               })}
+
+              <article className="group relative overflow-hidden rounded-[1.6rem] border border-[#dbeafe] bg-[#f8fbff] p-5 shadow-[0_18px_55px_rgba(7,26,61,0.08)] transition hover:-translate-y-1 md:p-6">
+                <div className="mb-5 flex h-12 w-12 items-center justify-center rounded-2xl bg-white shadow-sm">
+                  <ArrowRight className="text-[#2563eb]" size={21} />
+                </div>
+
+                <p className="text-xs font-black uppercase tracking-[0.2em] text-[#2563eb]">
+                  Custom Plan
+                </p>
+
+                <h3 className="mt-3 text-2xl font-black tracking-[-0.04em] text-[#071a3d] md:text-3xl">
+                  Need a mixed service package?
+                </h3>
+
+                <p className="mt-3 text-sm leading-7 text-slate-600">
+                  We can combine content, ads, SEO, website development and
+                  local visibility into one practical growth plan.
+                </p>
+
+                <a
+                  href="/contact"
+                  className="mt-6 inline-flex items-center gap-2 rounded-2xl bg-[#071a3d] px-5 py-3 text-sm font-black text-white transition hover:bg-[#0b2a5b]"
+                >
+                  Discuss Project <ArrowRight size={16} />
+                </a>
+              </article>
             </div>
           </div>
         </section>
 
-        <section className="px-6 py-24 bg-[#f8fbff]">
+        <section className="bg-[#f8fbff] px-6 py-16 md:py-20">
           <div className="container-premium">
-            <div className="text-center mb-14">
+            <div className="mx-auto mb-10 max-w-4xl text-center md:mb-12">
               <p className="section-label">How We Work</p>
 
-              <h2 className="section-title max-w-4xl mx-auto">
+              <h2 className="section-title mx-auto max-w-4xl">
                 Strategy, creative execution and performance in one system.
               </h2>
+
+              <p className="section-text mx-auto mt-4 max-w-2xl">
+                Every campaign is built around practical goals, clear
+                deliverables and consistent improvement.
+              </p>
             </div>
 
-            <div className="grid gap-6 md:grid-cols-3">
-              {servicePromises.map((item) => (
-                <div key={item.title} className="premium-card p-8">
-                  <h3 className="text-xl md:text-2xl font-black text-[#071a3d]">
+            <div className="grid gap-5 md:grid-cols-3">
+              {servicePromises.map((item, index) => (
+                <div
+                  key={item.title}
+                  className="premium-card group h-full p-6 transition hover:-translate-y-1 md:p-7"
+                >
+                  <div className="mb-5 flex h-10 w-10 items-center justify-center rounded-2xl bg-[#eff6ff] text-sm font-black text-[#2563eb] transition group-hover:bg-[#071a3d] group-hover:text-white">
+                    {String(index + 1).padStart(2, '0')}
+                  </div>
+
+                  <h3 className="text-xl font-black tracking-[-0.03em] text-[#071a3d] md:text-2xl">
                     {item.title}
                   </h3>
 
-                  <p className="mt-4 text-sm leading-relaxed text-slate-600">
+                  <p className="mt-3 text-sm leading-7 text-slate-600">
                     {item.text}
                   </p>
                 </div>

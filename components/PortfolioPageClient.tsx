@@ -154,167 +154,174 @@ export default function PortfolioPageClient() {
           description="Explore client campaigns, creative direction and promotional content created across healthcare, interiors, restaurants, cafes, beauty and lifestyle businesses."
         />
 
-        <section className="px-6 pb-24">
+        <section className="px-6 pb-16 md:pb-20">
           <div className="container-premium">
-            <div className="mb-10 rounded-[2rem] border border-[#dbeafe] bg-[#f8fbff] p-6 text-center md:p-8">
-              <p className="text-xs font-black uppercase tracking-[0.24em] text-[#2563eb]">
+            <div className="mb-8 rounded-[1.75rem] border border-[#dbeafe] bg-[#f8fbff] p-5 text-center shadow-[0_18px_55px_rgba(7,26,61,0.05)] md:p-6">
+              <p className="text-xs font-black uppercase tracking-[0.22em] text-[#2563eb]">
                 Portfolio Approach
               </p>
 
-              <h2 className="mx-auto mt-4 max-w-4xl text-3xl font-black tracking-[-0.04em] text-[#071a3d] md:text-5xl">
-                We present the work through context, not inflated claims.
+              <h2 className="mx-auto mt-3 max-w-4xl text-2xl font-black tracking-[-0.04em] text-[#071a3d] md:text-4xl">
+                Work presented through context, not inflated claims.
               </h2>
 
-              <p className="mx-auto mt-5 max-w-3xl text-sm leading-relaxed text-slate-600 md:text-base">
+              <p className="mx-auto mt-4 max-w-3xl text-sm leading-7 text-slate-600">
                 Each case study highlights the business context, creative
                 approach and deliverables. Performance numbers are only used
-                when they are verified and available.
+                when verified and available.
               </p>
             </div>
 
-            <div className="space-y-5">
+            <div className="space-y-4">
               {portfolioSections.map((group) => {
                 const isOpen = openSection === group.section;
 
                 return (
                   <div
                     key={group.section}
-                    className="overflow-hidden rounded-[2rem] border border-[#dbeafe] bg-white shadow-[0_20px_60px_rgba(7,26,61,0.08)]"
+                    className="overflow-hidden rounded-[1.75rem] border border-[#dbeafe] bg-white shadow-[0_18px_55px_rgba(7,26,61,0.07)]"
                   >
                     <button
                       type="button"
                       onClick={() =>
                         setOpenSection(isOpen ? '' : group.section)
                       }
-                      className="flex w-full items-center justify-between gap-5 bg-white px-5 py-6 text-left md:px-8 md:py-8"
+                      className="flex w-full items-center justify-between gap-5 bg-white px-5 py-5 text-left transition hover:bg-[#f8fbff] md:px-6 md:py-6"
                     >
                       <div>
-                        <p className="text-xs font-black uppercase tracking-[0.24em] text-[#2563eb]">
+                        <p className="text-[11px] font-black uppercase tracking-[0.22em] text-[#2563eb]">
                           Industry
                         </p>
 
-                        <h2 className="mt-2 text-2xl font-black tracking-[-0.04em] text-[#071a3d] md:text-4xl">
+                        <h2 className="mt-2 text-2xl font-black tracking-[-0.04em] text-[#071a3d] md:text-3xl">
                           {group.section}
                         </h2>
 
-                        <p className="mt-3 max-w-2xl text-sm leading-relaxed text-slate-600 md:text-base">
+                        <p className="mt-2 max-w-2xl text-sm leading-7 text-slate-600">
                           {group.description}
                         </p>
                       </div>
 
                       <div
-                        className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#eff6ff] text-[#2563eb] transition ${
+                        className={`flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-[#eff6ff] text-[#2563eb] transition ${
                           isOpen ? 'rotate-180' : ''
                         }`}
                       >
-                        <ChevronDown size={22} />
+                        <ChevronDown size={20} />
                       </div>
                     </button>
 
                     {isOpen && (
-                      <div className="border-t border-[#dbeafe] bg-[#f8fbff] px-5 py-6 md:px-8 md:py-8">
-                        <div className="grid gap-6">
+                      <div className="border-t border-[#dbeafe] bg-[#f8fbff] px-4 py-5 md:px-6 md:py-6">
+                        <div className="grid gap-5">
                           {group.clients.map((client) => (
                             <article
                               key={client.name}
-                              className="overflow-hidden rounded-[2rem] border border-[#dbeafe] bg-white shadow-[0_22px_70px_rgba(7,26,61,0.08)]"
+                              className="overflow-hidden rounded-[1.75rem] border border-[#dbeafe] bg-white shadow-[0_18px_55px_rgba(7,26,61,0.07)]"
                             >
-                              <div className="grid gap-0 lg:grid-cols-[1.05fr_0.95fr]">
-                                <div className="p-5 md:p-8">
+                              <div className="grid lg:grid-cols-[1.08fr_0.92fr]">
+                                <div className="p-5 md:p-6">
                                   <div className="flex flex-wrap gap-2">
-                                    <span className="rounded-full bg-[#eff6ff] px-4 py-2 text-xs font-black uppercase tracking-[0.16em] text-[#2563eb]">
+                                    <span className="rounded-full bg-[#eff6ff] px-3.5 py-2 text-[11px] font-black uppercase tracking-[0.16em] text-[#2563eb]">
                                       Case Study
                                     </span>
 
-                                    <span className="rounded-full bg-[#071a3d] px-4 py-2 text-xs font-black uppercase tracking-[0.16em] text-white">
+                                    <span className="rounded-full bg-[#071a3d] px-3.5 py-2 text-[11px] font-black uppercase tracking-[0.16em] text-white">
                                       {client.work}
                                     </span>
                                   </div>
 
-                                  <h3 className="mt-6 text-3xl font-black tracking-[-0.04em] text-[#071a3d] md:text-5xl">
+                                  <h3 className="mt-5 text-3xl font-black tracking-[-0.045em] text-[#071a3d] md:text-4xl">
                                     {client.name}
                                   </h3>
 
-                                  <div className="mt-6 grid gap-3 md:grid-cols-3">
-                                    <div className="rounded-2xl border border-[#dbeafe] bg-[#f8fbff] p-4">
+                                  <div className="mt-5 grid gap-3 md:grid-cols-3">
+                                    <div className="rounded-2xl border border-[#dbeafe] bg-[#f8fbff] p-3.5">
                                       <Building2
-                                        size={18}
+                                        size={17}
                                         className="text-[#2563eb]"
                                       />
-                                      <p className="mt-3 text-xs font-black uppercase tracking-[0.18em] text-[#2563eb]">
+
+                                      <p className="mt-3 text-[11px] font-black uppercase tracking-[0.16em] text-[#2563eb]">
                                         Sector
                                       </p>
-                                      <p className="mt-1 text-sm font-bold text-[#071a3d]">
+
+                                      <p className="mt-1 text-xs font-bold leading-5 text-[#071a3d]">
                                         {client.sector}
                                       </p>
                                     </div>
 
-                                    <div className="rounded-2xl border border-[#dbeafe] bg-[#f8fbff] p-4">
+                                    <div className="rounded-2xl border border-[#dbeafe] bg-[#f8fbff] p-3.5">
                                       <Briefcase
-                                        size={18}
+                                        size={17}
                                         className="text-[#2563eb]"
                                       />
-                                      <p className="mt-3 text-xs font-black uppercase tracking-[0.18em] text-[#2563eb]">
+
+                                      <p className="mt-3 text-[11px] font-black uppercase tracking-[0.16em] text-[#2563eb]">
                                         Work
                                       </p>
-                                      <p className="mt-1 text-sm font-bold text-[#071a3d]">
+
+                                      <p className="mt-1 text-xs font-bold leading-5 text-[#071a3d]">
                                         {client.work}
                                       </p>
                                     </div>
 
-                                    <div className="rounded-2xl border border-[#dbeafe] bg-[#f8fbff] p-4">
+                                    <div className="rounded-2xl border border-[#dbeafe] bg-[#f8fbff] p-3.5">
                                       <Clapperboard
-                                        size={18}
+                                        size={17}
                                         className="text-[#2563eb]"
                                       />
-                                      <p className="mt-3 text-xs font-black uppercase tracking-[0.18em] text-[#2563eb]">
+
+                                      <p className="mt-3 text-[11px] font-black uppercase tracking-[0.16em] text-[#2563eb]">
                                         Type
                                       </p>
-                                      <p className="mt-1 text-sm font-bold text-[#071a3d]">
+
+                                      <p className="mt-1 text-xs font-bold leading-5 text-[#071a3d]">
                                         {client.campaignType}
                                       </p>
                                     </div>
                                   </div>
 
-                                  <div className="mt-7 grid gap-5 md:grid-cols-2">
-                                    <div className="rounded-[1.5rem] border border-[#dbeafe] bg-white p-5">
-                                      <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-[#eff6ff]">
+                                  <div className="mt-5 grid gap-4 md:grid-cols-2">
+                                    <div className="rounded-[1.35rem] border border-[#dbeafe] bg-white p-4">
+                                      <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-2xl bg-[#eff6ff]">
                                         <Target
-                                          size={20}
+                                          size={18}
                                           className="text-[#2563eb]"
                                         />
                                       </div>
 
-                                      <h4 className="text-lg font-black text-[#071a3d]">
+                                      <h4 className="text-base font-black text-[#071a3d]">
                                         Challenge
                                       </h4>
 
-                                      <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                                      <p className="mt-2 text-sm leading-7 text-slate-600">
                                         {client.challenge}
                                       </p>
                                     </div>
 
-                                    <div className="rounded-[1.5rem] border border-[#dbeafe] bg-white p-5">
-                                      <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-[#eff6ff]">
+                                    <div className="rounded-[1.35rem] border border-[#dbeafe] bg-white p-4">
+                                      <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-2xl bg-[#eff6ff]">
                                         <Lightbulb
-                                          size={20}
+                                          size={18}
                                           className="text-[#2563eb]"
                                         />
                                       </div>
 
-                                      <h4 className="text-lg font-black text-[#071a3d]">
+                                      <h4 className="text-base font-black text-[#071a3d]">
                                         What Axira Did
                                       </h4>
 
-                                      <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                                      <p className="mt-2 text-sm leading-7 text-slate-600">
                                         {client.approach}
                                       </p>
                                     </div>
                                   </div>
                                 </div>
 
-                                <div className="relative bg-[#071a3d] p-5 text-white md:p-8">
+                                <div className="relative bg-[#071a3d] p-5 text-white md:p-6">
                                   <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_15%,rgba(37,99,235,0.5),transparent_35%)]" />
+                                  <div className="absolute -bottom-20 -left-20 h-48 w-48 rounded-full bg-[#2563eb]/20 blur-3xl" />
 
                                   <div className="relative z-10 flex h-full flex-col justify-between">
                                     <div>
@@ -322,31 +329,32 @@ export default function PortfolioPageClient() {
                                         Deliverables
                                       </p>
 
-                                      <div className="mt-6 space-y-3">
+                                      <div className="mt-4 space-y-2.5">
                                         {client.deliverables.map((item) => (
                                           <div
                                             key={item}
-                                            className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-sm font-medium text-slate-200"
+                                            className="flex items-center gap-3 rounded-2xl border border-white/10 bg-white/10 px-3.5 py-2.5 text-xs font-semibold text-slate-200"
                                           >
                                             <CheckCircle2
-                                              size={16}
+                                              size={15}
                                               className="shrink-0 text-[#93c5fd]"
                                             />
+
                                             <span>{item}</span>
                                           </div>
                                         ))}
                                       </div>
                                     </div>
 
-                                    <div className="mt-8">
-                                      <div className="mb-5 overflow-hidden rounded-[1.5rem] border border-white/10 bg-black/30">
+                                    <div className="mt-6">
+                                      <div className="mb-4 overflow-hidden rounded-[1.35rem] border border-white/10 bg-black/30">
                                         <video
                                           src={client.video}
                                           muted
                                           loop
                                           playsInline
                                           preload="metadata"
-                                          className="h-64 w-full object-cover opacity-90"
+                                          className="h-56 w-full object-cover opacity-90 md:h-60"
                                         />
                                       </div>
 
@@ -355,9 +363,9 @@ export default function PortfolioPageClient() {
                                         onClick={() =>
                                           setActiveVideo(client.video)
                                         }
-                                        className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-white px-5 py-4 text-sm font-black text-[#071a3d] transition hover:scale-[1.02]"
+                                        className="inline-flex w-full items-center justify-center gap-2 rounded-2xl bg-white px-5 py-3.5 text-sm font-black text-[#071a3d] transition hover:scale-[1.02]"
                                       >
-                                        <Play size={17} />
+                                        <Play size={16} />
                                         Watch Campaign
                                       </button>
                                     </div>
@@ -377,13 +385,12 @@ export default function PortfolioPageClient() {
         </section>
 
         <FinalCTA />
-
         <Footer />
       </main>
 
       {activeVideo && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#071a3d]/90 px-4 backdrop-blur-md">
-          <div className="relative w-full max-w-md overflow-hidden rounded-[2rem] bg-black shadow-[0_30px_90px_rgba(0,0,0,0.45)]">
+          <div className="relative w-full max-w-md overflow-hidden rounded-[1.75rem] bg-black shadow-[0_30px_90px_rgba(0,0,0,0.45)]">
             <button
               type="button"
               onClick={() => setActiveVideo(null)}
