@@ -4,7 +4,8 @@ import { generateSeoMetadata } from '@/lib/seo';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import PageHero from '@/components/PageHero';
-import { Mail, Phone, MessageCircle, MapPin, ArrowRight } from 'lucide-react';
+import ContactForm from '@/components/ContactForm';
+import { Mail, Phone, MessageCircle, MapPin } from 'lucide-react';
 
 export const metadata: Metadata = generateSeoMetadata({
   title: 'Contact',
@@ -45,27 +46,6 @@ const contactCards = [
     value: 'Mumbai, Maharashtra',
     href: '#',
   },
-];
-
-const serviceOptions = [
-  'Social Media Management',
-  'Meta Ads',
-  'Google Ads',
-  'SEO Optimization',
-  'Website Development',
-  'Branding & Design',
-  'Google Business Listing',
-  'Complete Digital Marketing',
-  'Not Sure Yet',
-];
-
-const budgetOptions = [
-  'Below ₹25,000',
-  '₹25,000 - ₹50,000',
-  '₹50,000 - ₹1,00,000',
-  '₹1,00,000 - ₹2,50,000',
-  'Above ₹2,50,000',
-  'Need guidance',
 ];
 
 export default function ContactPage() {
@@ -130,167 +110,7 @@ export default function ContactPage() {
             <div className="relative overflow-hidden rounded-[2rem] bg-[#071a3d] p-6 text-white shadow-[0_30px_90px_rgba(7,26,61,0.25)] md:p-8">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_15%,rgba(37,99,235,0.55),transparent_35%)]" />
 
-              <form className="relative z-10 space-y-5">
-                <div className="grid gap-5 md:grid-cols-2">
-                  <div>
-                    <label
-                      htmlFor="name"
-                      className="text-sm font-bold text-slate-200"
-                    >
-                      Name <span className="text-[#93c5fd]">*</span>
-                    </label>
-
-                    <input
-                      id="name"
-                      name="name"
-                      type="text"
-                      required
-                      placeholder="Your name"
-                      className="mt-2 w-full rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white outline-none placeholder:text-slate-400 focus:border-[#93c5fd]"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="businessName"
-                      className="text-sm font-bold text-slate-200"
-                    >
-                      Business Name <span className="text-[#93c5fd]">*</span>
-                    </label>
-
-                    <input
-                      id="businessName"
-                      name="businessName"
-                      type="text"
-                      required
-                      placeholder="Your business name"
-                      className="mt-2 w-full rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white outline-none placeholder:text-slate-400 focus:border-[#93c5fd]"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid gap-5 md:grid-cols-2">
-                  <div>
-                    <label
-                      htmlFor="phone"
-                      className="text-sm font-bold text-slate-200"
-                    >
-                      Phone / WhatsApp <span className="text-[#93c5fd]">*</span>
-                    </label>
-
-                    <input
-                      id="phone"
-                      name="phone"
-                      type="tel"
-                      required
-                      placeholder="+91 98765 43210"
-                      className="mt-2 w-full rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white outline-none placeholder:text-slate-400 focus:border-[#93c5fd]"
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="email"
-                      className="text-sm font-bold text-slate-200"
-                    >
-                      Email
-                    </label>
-
-                    <input
-                      id="email"
-                      name="email"
-                      type="email"
-                      placeholder="you@example.com"
-                      className="mt-2 w-full rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white outline-none placeholder:text-slate-400 focus:border-[#93c5fd]"
-                    />
-                  </div>
-                </div>
-
-                <div className="grid gap-5 md:grid-cols-2">
-                  <div>
-                    <label
-                      htmlFor="service"
-                      className="text-sm font-bold text-slate-200"
-                    >
-                      Service Needed <span className="text-[#93c5fd]">*</span>
-                    </label>
-
-                    <select
-                      id="service"
-                      name="service"
-                      required
-                      defaultValue=""
-                      className="mt-2 w-full rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white outline-none focus:border-[#93c5fd] [&>option]:bg-[#071a3d] [&>option]:text-white"
-                    >
-                      <option value="" disabled>
-                        Select a service
-                      </option>
-
-                      {serviceOptions.map((service) => (
-                        <option key={service} value={service}>
-                          {service}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-
-                  <div>
-                    <label
-                      htmlFor="budget"
-                      className="text-sm font-bold text-slate-200"
-                    >
-                      Budget Range <span className="text-[#93c5fd]">*</span>
-                    </label>
-
-                    <select
-                      id="budget"
-                      name="budget"
-                      required
-                      defaultValue=""
-                      className="mt-2 w-full rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white outline-none focus:border-[#93c5fd] [&>option]:bg-[#071a3d] [&>option]:text-white"
-                    >
-                      <option value="" disabled>
-                        Select budget range
-                      </option>
-
-                      {budgetOptions.map((budget) => (
-                        <option key={budget} value={budget}>
-                          {budget}
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-
-                <div>
-                  <label
-                    htmlFor="message"
-                    className="text-sm font-bold text-slate-200"
-                  >
-                    Project Details <span className="text-[#93c5fd]">*</span>
-                  </label>
-
-                  <textarea
-                    id="message"
-                    name="message"
-                    rows={5}
-                    required
-                    placeholder="Tell us about your business, goals, target audience, location and what you want to improve."
-                    className="mt-2 w-full resize-none rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white outline-none placeholder:text-slate-400 focus:border-[#93c5fd]"
-                  />
-                </div>
-
-                <button
-                  type="submit"
-                  className="flex w-full items-center justify-center gap-2 rounded-2xl bg-white px-6 py-4 font-black text-[#071a3d] transition hover:scale-[1.02]"
-                >
-                  Send Inquiry <ArrowRight size={18} />
-                </button>
-
-                <p className="text-center text-xs text-slate-400">
-                  Fields marked with * are required.
-                </p>
-              </form>
+              <ContactForm />
             </div>
           </div>
         </section>
