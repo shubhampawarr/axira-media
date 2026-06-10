@@ -47,6 +47,27 @@ const contactCards = [
   },
 ];
 
+const serviceOptions = [
+  'Social Media Management',
+  'Meta Ads',
+  'Google Ads',
+  'SEO Optimization',
+  'Website Development',
+  'Branding & Design',
+  'Google Business Listing',
+  'Complete Digital Marketing',
+  'Not Sure Yet',
+];
+
+const budgetOptions = [
+  'Below ₹25,000',
+  '₹25,000 - ₹50,000',
+  '₹50,000 - ₹1,00,000',
+  '₹1,00,000 - ₹2,50,000',
+  'Above ₹2,50,000',
+  'Need guidance',
+];
+
 export default function ContactPage() {
   return (
     <>
@@ -70,7 +91,7 @@ export default function ContactPage() {
                   <a
                     key={item.label}
                     href={item.href}
-                    className="premium-card p-5 flex items-center gap-4"
+                    className="premium-card flex items-center gap-4 p-5 transition hover:-translate-y-1"
                   >
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-[#eff6ff]">
                       <Icon className="text-[#2563eb]" size={22} />
@@ -81,67 +102,180 @@ export default function ContactPage() {
                         {item.label}
                       </p>
 
-                      <p className="mt-1 text-sm md:text-base font-semibold text-[#071a3d] break-all">
+                      <p className="mt-1 break-all text-sm font-semibold text-[#071a3d] md:text-base">
                         {item.value}
                       </p>
                     </div>
                   </a>
                 );
               })}
+
+              <div className="rounded-[2rem] border border-[#dbeafe] bg-[#f8fbff] p-6">
+                <p className="text-xs font-black uppercase tracking-[0.22em] text-[#2563eb]">
+                  Response Time
+                </p>
+
+                <h2 className="mt-3 text-2xl font-black text-[#071a3d]">
+                  We usually respond quickly.
+                </h2>
+
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">
+                  Share your business details and marketing goals. The more
+                  specific your inquiry is, the better we can recommend the
+                  right service plan.
+                </p>
+              </div>
             </div>
 
-            <div className="relative overflow-hidden rounded-[2rem] bg-[#071a3d] p-6 md:p-8 text-white shadow-[0_30px_90px_rgba(7,26,61,0.25)]">
+            <div className="relative overflow-hidden rounded-[2rem] bg-[#071a3d] p-6 text-white shadow-[0_30px_90px_rgba(7,26,61,0.25)] md:p-8">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_85%_15%,rgba(37,99,235,0.55),transparent_35%)]" />
 
               <form className="relative z-10 space-y-5">
-                <div>
-                  <label className="text-sm font-bold text-slate-200">
-                    Name
-                  </label>
+                <div className="grid gap-5 md:grid-cols-2">
+                  <div>
+                    <label
+                      htmlFor="name"
+                      className="text-sm font-bold text-slate-200"
+                    >
+                      Name <span className="text-[#93c5fd]">*</span>
+                    </label>
 
-                  <input
-                    type="text"
-                    placeholder="Your name"
-                    className="mt-2 w-full rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white outline-none placeholder:text-slate-400 focus:border-[#93c5fd]"
-                  />
+                    <input
+                      id="name"
+                      name="name"
+                      type="text"
+                      required
+                      placeholder="Your name"
+                      className="mt-2 w-full rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white outline-none placeholder:text-slate-400 focus:border-[#93c5fd]"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="businessName"
+                      className="text-sm font-bold text-slate-200"
+                    >
+                      Business Name <span className="text-[#93c5fd]">*</span>
+                    </label>
+
+                    <input
+                      id="businessName"
+                      name="businessName"
+                      type="text"
+                      required
+                      placeholder="Your business name"
+                      className="mt-2 w-full rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white outline-none placeholder:text-slate-400 focus:border-[#93c5fd]"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid gap-5 md:grid-cols-2">
+                  <div>
+                    <label
+                      htmlFor="phone"
+                      className="text-sm font-bold text-slate-200"
+                    >
+                      Phone / WhatsApp <span className="text-[#93c5fd]">*</span>
+                    </label>
+
+                    <input
+                      id="phone"
+                      name="phone"
+                      type="tel"
+                      required
+                      placeholder="+91 98765 43210"
+                      className="mt-2 w-full rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white outline-none placeholder:text-slate-400 focus:border-[#93c5fd]"
+                    />
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="email"
+                      className="text-sm font-bold text-slate-200"
+                    >
+                      Email
+                    </label>
+
+                    <input
+                      id="email"
+                      name="email"
+                      type="email"
+                      placeholder="you@example.com"
+                      className="mt-2 w-full rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white outline-none placeholder:text-slate-400 focus:border-[#93c5fd]"
+                    />
+                  </div>
+                </div>
+
+                <div className="grid gap-5 md:grid-cols-2">
+                  <div>
+                    <label
+                      htmlFor="service"
+                      className="text-sm font-bold text-slate-200"
+                    >
+                      Service Needed <span className="text-[#93c5fd]">*</span>
+                    </label>
+
+                    <select
+                      id="service"
+                      name="service"
+                      required
+                      defaultValue=""
+                      className="mt-2 w-full rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white outline-none focus:border-[#93c5fd] [&>option]:bg-[#071a3d] [&>option]:text-white"
+                    >
+                      <option value="" disabled>
+                        Select a service
+                      </option>
+
+                      {serviceOptions.map((service) => (
+                        <option key={service} value={service}>
+                          {service}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div>
+                    <label
+                      htmlFor="budget"
+                      className="text-sm font-bold text-slate-200"
+                    >
+                      Budget Range <span className="text-[#93c5fd]">*</span>
+                    </label>
+
+                    <select
+                      id="budget"
+                      name="budget"
+                      required
+                      defaultValue=""
+                      className="mt-2 w-full rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white outline-none focus:border-[#93c5fd] [&>option]:bg-[#071a3d] [&>option]:text-white"
+                    >
+                      <option value="" disabled>
+                        Select budget range
+                      </option>
+
+                      {budgetOptions.map((budget) => (
+                        <option key={budget} value={budget}>
+                          {budget}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
                 </div>
 
                 <div>
-                  <label className="text-sm font-bold text-slate-200">
-                    Phone / WhatsApp
-                  </label>
-
-                  <input
-                    type="tel"
-                    placeholder="Your phone number"
-                    className="mt-2 w-full rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white outline-none placeholder:text-slate-400 focus:border-[#93c5fd]"
-                  />
-                </div>
-
-                <div>
-                  <label className="text-sm font-bold text-slate-200">
-                    Service Needed
-                  </label>
-
-                  <select className="mt-2 w-full rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white outline-none focus:border-[#93c5fd]">
-                    <option>Social Media Management</option>
-                    <option>Meta Ads</option>
-                    <option>Google Ads</option>
-                    <option>SEO Optimization</option>
-                    <option>Website Development</option>
-                    <option>Branding & Design</option>
-                    <option>Google Business Listing</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="text-sm font-bold text-slate-200">
-                    Message
+                  <label
+                    htmlFor="message"
+                    className="text-sm font-bold text-slate-200"
+                  >
+                    Project Details <span className="text-[#93c5fd]">*</span>
                   </label>
 
                   <textarea
+                    id="message"
+                    name="message"
                     rows={5}
-                    placeholder="Tell us about your business goals"
+                    required
+                    placeholder="Tell us about your business, goals, target audience, location and what you want to improve."
                     className="mt-2 w-full resize-none rounded-2xl border border-white/10 bg-white/10 px-4 py-3 text-white outline-none placeholder:text-slate-400 focus:border-[#93c5fd]"
                   />
                 </div>
@@ -154,7 +288,7 @@ export default function ContactPage() {
                 </button>
 
                 <p className="text-center text-xs text-slate-400">
-                  We’ll get back to you as soon as possible.
+                  Fields marked with * are required.
                 </p>
               </form>
             </div>
