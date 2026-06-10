@@ -9,18 +9,30 @@ import {
   CheckCircle2,
 } from 'lucide-react';
 
-const metrics = [
-  { icon: Target, label: 'Lead Generation', value: '+182%' },
-  { icon: BarChart3, label: 'Ad Performance', value: '3.4x ROAS' },
-  { icon: TrendingUp, label: 'Organic Visibility', value: '+240%' },
+const focusAreas = [
+  {
+    icon: Target,
+    label: 'Lead Flow',
+    value: 'Structured',
+  },
+  {
+    icon: BarChart3,
+    label: 'Campaigns',
+    value: 'Optimized',
+  },
+  {
+    icon: TrendingUp,
+    label: 'Visibility',
+    value: 'Improved',
+  },
 ];
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden px-5 md:px-6 pt-28 pb-16 bg-white text-[#071a3d]">
+    <section className="relative flex min-h-screen items-center overflow-hidden bg-white px-5 pb-16 pt-28 text-[#071a3d] md:px-6">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_75%_20%,rgba(37,99,235,0.11),transparent_32%),radial-gradient(circle_at_15%_85%,rgba(219,234,254,0.8),transparent_35%)]" />
 
-      <div className="container-premium relative z-10 grid lg:grid-cols-[1.15fr_0.85fr] gap-10 lg:gap-14 items-center">
+      <div className="container-premium relative z-10 grid items-center gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:gap-14">
         <motion.div
           initial={{ opacity: 0, y: 28 }}
           animate={{ opacity: 1, y: 0 }}
@@ -28,42 +40,44 @@ export default function Hero() {
         >
           <p className="section-label">Digital Growth Agency</p>
 
-          <h1 className="mt-3 max-w-3xl text-4xl md:text-5xl xl:text-6xl font-black leading-[0.95] tracking-[-0.045em] text-[#071a3d]">
+          <h1 className="mt-3 max-w-3xl text-4xl font-black leading-[0.95] tracking-[-0.045em] text-[#071a3d] md:text-5xl xl:text-6xl">
             Grow your business with{' '}
-            <span className="text-[#2563eb]">result-driven marketing.</span>
+            <span className="text-[#2563eb]">clear digital execution.</span>
           </h1>
 
-          <p className="mt-6 max-w-2xl text-slate-600 text-base md:text-lg leading-8">
-            Axira Media helps brands grow online through creative marketing,
-            powerful advertising, high-converting websites and strong digital
-            presence.
+          <p className="mt-6 max-w-2xl text-base leading-8 text-slate-600 md:text-lg">
+            Axira Media helps brands build a stronger online presence through
+            creative marketing, performance advertising, high-converting
+            websites and consistent digital strategy.
           </p>
 
-          <div className="mt-8 flex flex-col sm:flex-row gap-3 md:gap-4">
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row md:gap-4">
             <a
               href="/contact"
-              className="premium-button px-7 py-4 text-center flex items-center justify-center gap-2"
+              className="premium-button flex items-center justify-center gap-2 px-7 py-4 text-center"
             >
               Get Free Consultation <ArrowRight size={18} />
             </a>
 
             <a
               href="/services"
-              className="border border-[#bfdbfe] bg-white/70 px-7 py-4 rounded-[18px] text-center font-bold text-[#071a3d] hover:bg-[#eff6ff] transition"
+              className="rounded-[18px] border border-[#bfdbfe] bg-white/70 px-7 py-4 text-center font-bold text-[#071a3d] transition hover:bg-[#eff6ff]"
             >
               View Services
             </a>
           </div>
 
-          <div className="mt-8 flex flex-col sm:flex-row gap-4 text-sm text-slate-600">
-            {['Performance-focused', 'Transparent execution', 'Creative strategy'].map(
-              (item) => (
-                <div key={item} className="flex items-center gap-2">
-                  <CheckCircle2 className="text-[#2563eb]" size={18} />
-                  <span>{item}</span>
-                </div>
-              )
-            )}
+          <div className="mt-8 flex flex-col gap-4 text-sm text-slate-600 sm:flex-row">
+            {[
+              'Performance-focused',
+              'Transparent execution',
+              'Creative strategy',
+            ].map((item) => (
+              <div key={item} className="flex items-center gap-2">
+                <CheckCircle2 className="text-[#2563eb]" size={18} />
+                <span>{item}</span>
+              </div>
+            ))}
           </div>
         </motion.div>
 
@@ -74,29 +88,31 @@ export default function Hero() {
           className="relative max-w-[430px] lg:ml-auto"
         >
           <div className="premium-card p-4 md:p-5">
-            <div className="rounded-[1.25rem] bg-[#071a3d] p-5 text-white overflow-hidden relative">
+            <div className="relative overflow-hidden rounded-[1.25rem] bg-[#071a3d] p-5 text-white">
               <div className="absolute inset-0 bg-[radial-gradient(circle_at_80%_20%,rgba(37,99,235,0.5),transparent_38%)]" />
 
-              <div className="relative z-10 flex items-center justify-between mb-5">
+              <div className="relative z-10 mb-5 flex items-center justify-between">
                 <div>
-                  <p className="text-slate-300 text-sm">Campaign Dashboard</p>
-                  <h3 className="text-2xl font-black mt-1">Growth Snapshot</h3>
+                  <p className="text-sm text-slate-300">Campaign System</p>
+                  <h3 className="mt-1 text-2xl font-black">
+                    Growth Framework
+                  </h3>
                 </div>
 
-                <div className="w-11 h-11 rounded-2xl bg-white/10 flex items-center justify-center border border-white/10">
+                <div className="flex h-11 w-11 items-center justify-center rounded-2xl border border-white/10 bg-white/10">
                   <TrendingUp className="text-[#93c5fd]" size={21} />
                 </div>
               </div>
 
               <div className="relative z-10 grid grid-cols-3 gap-3">
                 {[
-                  ['Reach', '240K'],
-                  ['Leads', '1.8K'],
-                  ['ROI', '3.4x'],
+                  ['Strategy', 'Clear'],
+                  ['Creative', 'Ready'],
+                  ['Tracking', 'Focused'],
                 ].map(([label, value]) => (
                   <div
                     key={label}
-                    className="rounded-2xl bg-white/10 border border-white/10 p-3"
+                    className="rounded-2xl border border-white/10 bg-white/10 p-3"
                   >
                     <p className="text-xs text-slate-300">{label}</p>
                     <p className="mt-1 font-black">{value}</p>
@@ -106,23 +122,23 @@ export default function Hero() {
             </div>
 
             <div className="mt-4 space-y-3">
-              {metrics.map((item) => {
+              {focusAreas.map((item) => {
                 const Icon = item.icon;
 
                 return (
                   <div
                     key={item.label}
-                    className="bg-[#f8fbff] border border-[#dbeafe] rounded-2xl p-3.5 flex items-center justify-between"
+                    className="flex items-center justify-between rounded-2xl border border-[#dbeafe] bg-[#f8fbff] p-3.5"
                   >
                     <div className="flex items-center gap-3">
-                      <div className="w-10 h-10 rounded-xl bg-white flex items-center justify-center shadow-sm">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white shadow-sm">
                         <Icon className="text-[#2563eb]" size={18} />
                       </div>
 
-                      <p className="text-slate-600 text-sm">{item.label}</p>
+                      <p className="text-sm text-slate-600">{item.label}</p>
                     </div>
 
-                    <p className="text-[#071a3d] font-black text-sm">
+                    <p className="text-sm font-black text-[#071a3d]">
                       {item.value}
                     </p>
                   </div>
