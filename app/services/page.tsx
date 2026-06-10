@@ -1,3 +1,6 @@
+import type { Metadata } from 'next';
+import { generateSeoMetadata } from '@/lib/seo';
+
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FinalCTA from '@/components/FinalCTA';
@@ -12,6 +15,22 @@ import {
   BarChart3,
   CheckCircle2,
 } from 'lucide-react';
+
+export const metadata: Metadata = generateSeoMetadata({
+  title: 'Services',
+  description:
+    'Explore Axira Media services including Social Media Management, Meta Ads, Google Ads, Search Engine Optimization, Website Development, Branding & Design and Google Business Listing.',
+  path: '/services',
+  keywords: [
+    'social media management',
+    'Meta Ads agency',
+    'Google Ads agency',
+    'SEO services',
+    'website development agency',
+    'branding and design agency',
+    'Google Business Profile management',
+  ],
+});
 
 const services = [
   {
@@ -40,15 +59,10 @@ const services = [
     title: 'Google Ads',
     icon: BarChart3,
     intro: 'Reach customers actively searching for your services.',
-    deliverables: [
-      'Search Ads',
-      'Display Ads',
-      'YouTube Ads',
-      'Tracking Setup',
-    ],
+    deliverables: ['Search Ads', 'Display Ads', 'YouTube Ads', 'Tracking Setup'],
   },
   {
-    title: 'SEO Optimization',
+    title: 'Search Engine Optimization',
     icon: Search,
     intro: 'Improve rankings, visibility and organic traffic.',
     deliverables: ['SEO Audit', 'On-Page SEO', 'Technical SEO', 'Local SEO'],
@@ -68,7 +82,12 @@ const services = [
     title: 'Branding & Design',
     icon: Palette,
     intro: 'Create a polished identity for a stronger brand presence.',
-    deliverables: ['Logo Design', 'Brand Identity', 'Social Creatives', 'Ad Designs'],
+    deliverables: [
+      'Logo Design',
+      'Brand Identity',
+      'Social Creatives',
+      'Ad Designs',
+    ],
   },
   {
     title: 'Google Business Listing',
@@ -172,7 +191,6 @@ export default function ServicesPage() {
                               size={14}
                               className="shrink-0 text-[#93c5fd]"
                             />
-
                             <span>{item}</span>
                           </div>
                         ))}
@@ -212,7 +230,6 @@ export default function ServicesPage() {
         </section>
 
         <FinalCTA />
-
         <Footer />
       </main>
     </>

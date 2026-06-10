@@ -1,7 +1,24 @@
+import type { Metadata } from 'next';
+import { generateSeoMetadata } from '@/lib/seo';
+
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import PageHero from '@/components/PageHero';
 import { Mail, Phone, MessageCircle, MapPin, ArrowRight } from 'lucide-react';
+
+export const metadata: Metadata = generateSeoMetadata({
+  title: 'Contact',
+  description:
+    'Contact Axira Media to discuss social media marketing, Meta Ads, Google Ads, SEO, website development, branding and digital growth for your business.',
+  path: '/contact',
+  keywords: [
+    'contact Axira Media',
+    'hire digital marketing agency',
+    'marketing consultation',
+    'business growth agency',
+    'digital marketing agency Mumbai',
+  ],
+});
 
 const contactCards = [
   {

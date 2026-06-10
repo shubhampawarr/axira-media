@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter, Space_Grotesk } from 'next/font/google';
+import { siteConfig } from '@/lib/seo';
 import './globals.css';
 
 const inter = Inter({
@@ -13,9 +14,56 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: 'Axira Media | Digital Marketing Agency',
-  description:
-    'Axira Media helps businesses grow through websites, SEO, Google Ads, Meta Ads and social media management.',
+  metadataBase: new URL(siteConfig.url),
+
+  title: {
+    default: siteConfig.title,
+    template: '%s | Axira Media',
+  },
+
+  description: siteConfig.description,
+
+  authors: [
+    {
+      name: 'Axira Media',
+    },
+  ],
+
+  creator: 'Axira Media',
+
+  icons: {
+    icon: '/favicon.ico',
+    apple: '/apple-icon.png',
+  },
+
+  openGraph: {
+    title: siteConfig.title,
+    description: siteConfig.description,
+    url: siteConfig.url,
+    siteName: 'Axira Media',
+    images: [
+      {
+        url: siteConfig.ogImage,
+        width: 1200,
+        height: 630,
+        alt: 'Axira Media Digital Marketing Agency',
+      },
+    ],
+    locale: 'en_IN',
+    type: 'website',
+  },
+
+  twitter: {
+    card: 'summary_large_image',
+    title: siteConfig.title,
+    description: siteConfig.description,
+    images: [siteConfig.ogImage],
+  },
+
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
@@ -24,7 +72,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en-IN">
       <body className={`${inter.variable} ${spaceGrotesk.variable}`}>
         {children}
       </body>

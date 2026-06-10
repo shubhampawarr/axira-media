@@ -1,8 +1,24 @@
+import type { Metadata } from 'next';
+import { generateSeoMetadata } from '@/lib/seo';
+
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import FinalCTA from '@/components/FinalCTA';
 import PageHero from '@/components/PageHero';
 import { Sparkles, ShieldCheck, BarChart3 } from 'lucide-react';
+
+export const metadata: Metadata = generateSeoMetadata({
+  title: 'About Us',
+  description:
+    'Learn about Axira Media, our mission, vision and values. We help businesses grow through digital marketing, advertising, websites and creative strategy.',
+  path: '/about',
+  keywords: [
+    'about Axira Media',
+    'digital marketing team',
+    'creative agency values',
+    'brand growth agency',
+  ],
+});
 
 const values = [
   {
@@ -109,7 +125,6 @@ export default function AboutPage() {
         </section>
 
         <FinalCTA />
-
         <Footer />
       </main>
     </>
